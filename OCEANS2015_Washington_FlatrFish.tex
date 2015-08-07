@@ -730,9 +730,21 @@ bypassing completely Syskit's own functions.
 
 \subsection{Simulation}
 
-Using Gazebo\footnote{http://gazebosim.org/} and OSG Ocean\footnote{https://code.google.com/p/osgocean/}
+In order to test the software integration, and the mission and fault handling behaviours,
+we have integrated the Gazebo realtime simulator~\footnote{http://gazebosim.org}.
 
-integration with ROck done in \cite{watanabe2015} see figure~\ref{fig:simulation}
+Out of the box, Gazeo did not provide all the functionality required for the FlatFish,
+namely the following was missing
+\begin{itemize}
+    \item water effect simulation for cameras, in particular the loss of color and the
+        limited depth of view,
+    \item physical effects of water (boyancy, drag and added mass),
+    \item the Rock integration
+\end{itemize}
+
+Our work consisted first in a clean integration of Gazebo in the Rock framework, and
+second its extension to support the simulation of an underwater environment. Technical
+details about this integration can be found here~\cite{watanabe2015}.
 
 \begin{figure}[!t]
 	\centering
