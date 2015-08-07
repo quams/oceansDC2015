@@ -444,47 +444,126 @@ The abstract goes here.
 
 
 \section{Introduction}
-Underwater structures like oil and gas production systems or the foundation of buildings, piers and off-shore wind facilities, have to be regularly inspected to evaluate the state of the structure and to plan future interventions for repair and maintenance. These inspections are currently done by remotely operated vehicles (ROVs) or, if water depth and availability allows it, by divers. Due to the fact that Inspections of this kind need a special support vessel, they are time-consuming, expensive, need to be planned a long time in advance and rely on good weather conditions and seasonal constraints (e.g.~not during hurricane season or winter storms).
 
-Especially when looking at the sub-sea operations of the oil and gas industry, being able to inspect the sub-sea part of an asset regularly and/or on demand plays a key role for sub-sea asset integrity assurance (SIA) and integrity management. The key informations needed from of the inspections are the general structural integrity and close visual data (also known as close visual inspection CVI). The former can be acquired by using sonars from a greater distance for the latter a camera has to be brought close to the structure. The capability to get information of the current state of any sub-sea equipment within the field whenever the need for an assessment arises, allows for much safer operations and a reduction of the operational expenditures (OPEX) due to the ability to better plan asset maintenance. While this holds already true for current offshore assets, it becomes crucial for the planned deep sea assets or in future fields with more complex sea floor production systems.
+Underwater structures like oil and gas production systems or the foundation of buildings,
+piers and off-shore wind facilities, have to be regularly inspected to evaluate the state
+of the structure and to plan future interventions for repair and maintenance. These
+inspections are currently done by remotely operated vehicles (ROVs) or, if water depth and
+availability allows it, by divers. Due to the fact that Inspections of this kind need a
+special support vessel, they are time-consuming, expensive, need to be planned a long time
+in advance and rely on good weather conditions and seasonal constraints (e.g.~not during
+hurricane season or winter storms).
 
-These kind of inspection are logistically and financially not possible to execute with ROVs since that would require the continuous presence of a ROV support vessel in the field. There are a few rare installation with ROVs deployed by FPSOs, but the limitation of the tether length limits these operational radius in an area around the FPSO. The solution is the usage of autonomous underwater vehicles (AUVs) for in-field inspection. Already \cite{gamechanger07} predicted the increase of AUV capabilities and their usage in tasks beyond the classic bathymetry.
+Especially when looking at the sub-sea operations of the oil and gas industry, being able
+to inspect the sub-sea part of an asset regularly and/or on demand plays a key role for
+sub-sea asset integrity assurance (SIA) and integrity management. The key informations
+needed from of the inspections are the general structural integrity and close visual data
+(also known as close visual inspection CVI). The former can be acquired by using sonars
+from a greater distance for the latter a camera has to be brought close to the structure.
+The capability to get information of the current state of any sub-sea equipment within the
+field whenever the need for an assessment arises, allows for much safer operations and a
+reduction of the operational expenditures (OPEX) due to the ability to better plan asset
+maintenance. While this holds already true for current offshore assets, it becomes crucial
+for the planned deep sea assets or in future fields with more complex sea floor production
+systems.
 
-AUV systems capable of delivering the desired inspection data need enhanced capabilities. The robot must be able to bring its cameras and lights close to the inspection target without damaging the structure. This requires a ROV like maneuverability combined with an control systems maintaining safe operations. This hovering ability is one of the key capabilities which is commonly used to distinguish the bathymetry class AUVs from the inspection class AUVs.
+These kind of inspection are logistically and financially not possible to execute with
+ROVs since that would require the continuous presence of a ROV support vessel in the
+field. There are a few rare installation with ROVs deployed by FPSOs, but the limitation
+of the tether length limits these operational radius in an area around the FPSO. The
+solution is the usage of autonomous underwater vehicles (AUVs) for in-field inspection.
+Already \cite{gamechanger07} predicted the increase of AUV capabilities and their usage in
+tasks beyond the classic bathymetry.
 
-To guarantee that at any given time a inspection of the assets sub-sea structures can be done, the AUV has to be readily available 24/7. Since deck space on platforms and FPSO is generally tight and to reduce the influence of the weather on operations, the solution is to operate the AUV \textit{sub-sea resident}. Sub sea resident within the AUV context means, that the robot has a dedicated docking station on the sea floor within the asset. This docking station is connected to the top side facilities of the asset. While in the docking station the AUV can be charged and data can be downloaded from the AUV and mission information can be uploaded to the AUV. When an inspection is required the mission is created on shore or top side and transmitted to the AUV. The AUV then leaves the docking station, executes the mission and returns to the docking station to recharge the batteries and transfer the inspection data.
+AUV systems capable of delivering the desired inspection data need enhanced capabilities.
+The robot must be able to bring its cameras and lights close to the inspection target
+without damaging the structure. This requires a ROV like maneuverability combined with an
+control systems maintaining safe operations. This hovering ability is one of the key
+capabilities which is commonly used to distinguish the bathymetry class AUVs from the
+inspection class AUVs.
 
-Sub sea residence is not a new concept. The idea is being passed around in research and development already for some time (e.g.~\cite{mcleod2011}). But until now the technology for actually implementing a sub-sea resident vehicle has not been available. Sub sea residency originally came out of the oceanographic research, where its intend was to expand the ranges of long-term environmental monitoring. World wide there are a couple of projects going on which have the usage of resident AUVs in the mid- to long-term plan, e.g.~\cite{german2012} or \cite{soltwedel2013}.
+To guarantee that at any given time a inspection of the assets sub-sea structures can be
+done, the AUV has to be readily available 24/7. Since deck space on platforms and FPSO is
+generally tight and to reduce the influence of the weather on operations, the solution is
+to operate the AUV \textit{sub-sea resident}. Sub sea resident within the AUV context
+means, that the robot has a dedicated docking station on the sea floor within the asset.
+This docking station is connected to the top side facilities of the asset. While in the
+docking station the AUV can be charged and data can be downloaded from the AUV and mission
+information can be uploaded to the AUV. When an inspection is required the mission is
+created on shore or top side and transmitted to the AUV. The AUV then leaves the docking
+station, executes the mission and returns to the docking station to recharge the batteries
+and transfer the inspection data.
 
-The requirements for a sub-sea resident AUV and its supporting infrastructure are high. All components have to be robust enough to be able to function even when being exposed to the deep sea environment for a longer time. This includes for example corrosion, bio-fouling, degradation of seals and the blockage of moving parts like thruster and locking mechanisms by sand or other dirt. The AUV as well as the infrastructure has to be designed in a way which on one hand addresses aforementioned problems and on the other hand allows for quick and cost efficient maintenance.
+Sub sea residence is not a new concept. The idea is being passed around in research and
+development already for some time (e.g.~\cite{mcleod2011}). But until now the technology
+for actually implementing a sub-sea resident vehicle has not been available. Sub sea
+residency originally came out of the oceanographic research, where its intend was to
+expand the ranges of long-term environmental monitoring. World wide there are a couple of
+projects going on which have the usage of resident AUVs in the mid- to long-term plan,
+e.g.~\cite{german2012} or \cite{soltwedel2013}.
+
+The requirements for a sub-sea resident AUV and its supporting infrastructure are high.
+All components have to be robust enough to be able to function even when being exposed to
+the deep sea environment for a longer time. This includes for example corrosion,
+bio-fouling, degradation of seals and the blockage of moving parts like thruster and
+locking mechanisms by sand or other dirt. The AUV as well as the infrastructure has to be
+designed in a way which on one hand addresses aforementioned problems and on the other
+hand allows for quick and cost efficient maintenance.
 
 \subsection{Project FlatFish}
 
-The FlatFish project is an initiative between BG Group Brazil and the Brazilian Institute for Robotics (BIR) in Salvador and is funded through the Brazilian Government R\&D levy, which requires that 1\% of gross production revenue from large Brazilian oil and gas fields to be invested in R\&D in Brazil.
+The FlatFish project is an initiative between BG Group Brazil and the Brazilian Institute
+for Robotics (BIR) in Salvador and is funded through the Brazilian Government R\&D levy,
+which requires that 1\% of gross production revenue from large Brazilian oil and gas
+fields to be invested in R\&D in Brazil.
 
-FaltFish aims at the development of a sub-sea resident inspection AUV. The project is part of a long-term research road-map of BG Group Brazil in the area of robotic for oil and gas production. The development of the AUV is devided in two phases: In the first phase the development infrastructure in Brazil will be developed, the AUV will be designed and integrated, and the first inspection tests will be conducted inshore of the coast of Salvador, Brazil and in the maritime test tank at DFKI in Bremen, Germany, The second phase will concentrate on extended offshore trials of the complete system, including the docking station, within an asset of BG Group. Currently the project is at the end of the first phase.
+FaltFish aims at the development of a sub-sea resident inspection AUV. The project is part
+of a long-term research road-map of BG Group Brazil in the area of robotic for oil and gas
+production. The development of the AUV is devided in two phases: In the first phase the
+development infrastructure in Brazil will be developed, the AUV will be designed and
+integrated, and the first inspection tests will be conducted inshore of the coast of
+Salvador, Brazil and in the maritime test tank at DFKI in Bremen, Germany, The second
+phase will concentrate on extended offshore trials of the complete system, including the
+docking station, within an asset of BG Group. Currently the project is at the end of the
+first phase.
 
-During a workshop between BG Group, BIR and DFKI at the begin of the FlatFish project the scenario and the principal design parameters were defined. The scenario was defines as the following:
+During a workshop between BG Group, BIR and DFKI at the begin of the FlatFish project the
+scenario and the principal design parameters were defined. The scenario was defines as the
+following:
+
 \begin{enumerate}
-	\item The AUV resides with in a docking station on the sea floor
-	\item Top side sends a mission to inspect a specific structure within the asset, e.g.~a mainfold or a SSIV
-	\item FlatFish leaves the docking station, and flies to the specified structure using pipelines and other sub-sea structures as external references
-	\item While in transit FlatFish uses its on-board sensors to record data of the assets status (e.g.~pipelines or debris) and to avoid obstacles
-	\item At the inspection target FlatFish uses an advanced camera system to do a close visual inspection of the complete structure
-	\item FlatFish returns to the docking station using the same navigation system as going to the structure
-	\item In the docking station the batteries are recharged, the data downloaded to top-side and a high resolution video linked 3D model is created as inspection result.
+    \item The AUV resides with in a docking station on the sea floor
+    \item Top side sends a mission to inspect a specific structure within the asset,
+        e.g.~a mainfold or a SSIV
+    \item FlatFish leaves the docking station, and flies to the specified structure using
+        pipelines and other sub-sea structures as external references
+    \item While in transit FlatFish uses its on-board sensors to record data of the assets
+        status (e.g.~pipelines or debris) and to avoid obstacles
+    \item At the inspection target FlatFish uses an advanced camera system to do a close
+        visual inspection of the complete structure
+    \item FlatFish returns to the docking station using the same navigation system as
+        going to the structure
+    \item In the docking station the batteries are recharged, the data downloaded to
+        top-side and a high resolution video linked 3D model is created as inspection
+        result.
 \end{enumerate}
+
 With this in mind the basic requirements for the FlatFish AUV were set to the following:
+
 \begin{itemize}
-	\item Compact design with hovering capabilities
-	\item Materials and mechanical design that allow for a long term sub-sea deployment
-	\item Extended sensor suite including for highly detailed visual inspection.
-	\item Multi-modal navigation system tailored to use the assets structure as landmarks
-	\item Multiple tracking systems e.g. pipeline tracking, cable tracking, structure tracking
-	\item On-line 3D reconstruction for adaptive inspection coverage and off-line dense 3D reconstruction with referencing between video data and 3D model
+    \item Compact design with hovering capabilities
+    \item Materials and mechanical design that allow for a long term sub-sea deployment
+    \item Extended sensor suite including for highly detailed visual inspection.
+    \item Multi-modal navigation system tailored to use the assets structure as landmarks
+    \item Multiple tracking systems e.g. pipeline tracking, cable tracking, structure
+        tracking
+    \item On-line 3D reconstruction for adaptive inspection coverage and off-line dense 3D
+        reconstruction with referencing between video data and 3D model
 \end{itemize}
 
-This paper focuses on the FlatFish AUV. The developments within the project are set into the current state of the art on inspection class AUVs and the design of the AUV is presented.
+This paper focuses on the FlatFish AUV. The developments within the project are set into
+the current state of the art on inspection class AUVs and the design of the AUV is
+presented.
 
 %%%%%%% here because of layout reasons
 \input{spec_table.tex}
@@ -502,33 +581,92 @@ This paper focuses on the FlatFish AUV. The developments within the project are 
 
 \section{Inspection Class AUVs}
 
-The primary tasks for autonomous underwater vehicles has always been data collection. Initially AUVs were designed to enhance the quality of sonar based wide area surveys by operating closer to the ground and without the influence of waves. Up to this day facilitating high-resolution bathymetric maps is still the primary application for AUVs. Other wide area operations are the search for objects such as flight recorders (see \cite{purcell2011}) or mine hunting (see \cite{Couillard2012}). AUVs designed to do these kind of tasks commonly only use one propeller and control planes and therefore lack the ability to \textit{hover}, meaning that they can't stay in one place like ROVs. The ability to hover is a key requirement to do inspection tasks on complex structures. Therefore this ability distinguishes inspection class AUVs from mapping systems.
+The primary tasks for autonomous underwater vehicles has always been data collection.
+Initially AUVs were designed to enhance the quality of sonar based wide area surveys by
+operating closer to the ground and without the influence of waves. Up to this day
+facilitating high-resolution bathymetric maps is still the primary application for AUVs.
+Other wide area operations are the search for objects such as flight recorders (see
+\cite{purcell2011}) or mine hunting (see \cite{Couillard2012}). AUVs designed to do these
+kind of tasks commonly only use one propeller and control planes and therefore lack the
+ability to \textit{hover}, meaning that they can't stay in one place like ROVs. The
+ability to hover is a key requirement to do inspection tasks on complex structures.
+Therefore this ability distinguishes inspection class AUVs from mapping systems.
 
-In recent years several AUV manufactures designed prototypical modifications of their mapping AUVs to do inspection tasks, e.g.~the modified REMUS 500 presented in \cite{packard2010}. All of this modifications have in common, that hovering is relatively expensive energy wise, so inspections which mainly rely on ROV like motions are not feasible with these systems.
+In recent years several AUV manufactures designed prototypical modifications of their
+mapping AUVs to do inspection tasks, e.g.~the modified REMUS 500 presented in
+\cite{packard2010}. All of this modifications have in common, that hovering is relatively
+expensive energy wise, so inspections which mainly rely on ROV like motions are not
+feasible with these systems.
 
-SubSea 7s autonomous inspection vehicle (AIV) \cite{AIV} comes close to the requirements defined for the FlatFish project. Nevertheless the AIV mainly operates sonar based and keeps longer distance to the inspection target and lacks additionally lacks the required high resolution video system.
+SubSea 7s autonomous inspection vehicle (AIV) \cite{AIV} comes close to the requirements
+defined for the FlatFish project. Nevertheless the AIV mainly operates sonar based and
+keeps longer distance to the inspection target and lacks additionally lacks the required
+high resolution video system.
 
-Lockheed Martins Marlin \cite{Marlinmk1} is a huge AUV primarily designed for carrying a bulky 3D imaging sonar. It has been used to do optical surveys as well (see \cite{mcleod2013}) but with mixed results. There has been some tries to use the Saab Seaeye Sabertooth \cite{johansson2010} as inspection class AUV, but up it suffers from the same size problems as the Marlin. 
+Lockheed Martins Marlin \cite{Marlinmk1} is a huge AUV primarily designed for carrying a
+bulky 3D imaging sonar. It has been used to do optical surveys as well (see
+\cite{mcleod2013}) but with mixed results. There has been some tries to use the Saab
+Seaeye Sabertooth \cite{johansson2010} as inspection class AUV, but up it suffers from the
+same size problems as the Marlin. 
 
-There are several prototypes and single systems used in robotic or marine research. Examples are the Italian TriMares \cite{cruz2011} used to evaluate dam inspection by AUVs, the Spanish Girona 500 vehicle \cite{ribas2012} used in different European projects and the Sentry AUV of the Woods Hole Oceanographic Institution in the USA, best known for its work during the Deepwater Horizon accident \cite{Kinsey2011}. All these system have in common, that they are unique solutions with special research interests.
+There are several prototypes and single systems used in robotic or marine research.
+Examples are the Italian TriMares \cite{cruz2011} used to evaluate dam inspection by AUVs,
+the Spanish Girona 500 vehicle \cite{ribas2012} used in different European projects and
+the Sentry AUV of the Woods Hole Oceanographic Institution in the USA, best known for its
+work during the Deepwater Horizon accident \cite{Kinsey2011}. All these system have in
+common, that they are unique solutions with special research interests.
 
-A special case currently being under development are so called \textit{hybrid} ROVs, which basically are hovering AUVs which are remotely controlled via a thin optical fiber during the inspection/scientific part of their mission. The first known vehicle of this kind was the deep diving NEREUS \cite{bowen2009}. An example for a resent system is the HROV \cite{meinecke2011} of the German MARUM.
+A special case currently being under development are so called \textit{hybrid} ROVs, which
+basically are hovering AUVs which are remotely controlled via a thin optical fiber during
+the inspection/scientific part of their mission. The first known vehicle of this kind was
+the deep diving NEREUS \cite{bowen2009}. An example for a resent system is the HROV
+\cite{meinecke2011} of the German MARUM.
 
-The work in FlatFish is based on the long experience of the DFKI RIC on the design of inspection AUVs. It mainly builds upon the operational experience made with DAGON \cite{hildebrandt2012} and on the mechatronic system of LENG \cite{hildebrandt2013}.
+The work in FlatFish is based on the long experience of the DFKI RIC on the design of
+inspection AUVs. It mainly builds upon the operational experience made with DAGON
+\cite{hildebrandt2012} and on the mechatronic system of LENG \cite{hildebrandt2013}.
 
 \section{Brasilian-German Development}
 
-FlatFish is developed in a joint effort between the Robotics Innovation Center (RIC) of DFKI in Bremen, Germany and the Brazilian Institute for Robotics (BIR) in Salvador, Brazil. This co-operation opens the unique opportunity to combine the indoor testing facilities and the experience on autonomous underwater robots in Bremen with the extended testing opportunities and the emerging commercial and scientific market in Brazil.
+FlatFish is developed in a joint effort between the Robotics Innovation Center (RIC) of
+DFKI in Bremen, Germany and the Brazilian Institute for Robotics (BIR) in Salvador,
+Brazil. This co-operation opens the unique opportunity to combine the indoor testing
+facilities and the experience on autonomous underwater robots in Bremen with the extended
+testing opportunities and the emerging commercial and scientific market in Brazil.
 
-The key elements of this co-operation within the project are the testing facilities which complement each other, the joint development of hard and software and the training of researchers and personnel.
+The key elements of this co-operation within the project are the testing facilities which
+complement each other, the joint development of hard and software and the training of
+researchers and personnel.
 
-The center of the maritime exploration hall\footnote{http://robotik.dfki-bremen.de/en/research/research-facilities/maritime-exploration-hall.html} at the facilities of DFKI RIC in Bremen is a 3.5 million liter salt water test tank. This tank allows for comprehensive tests of systems and control algorithms in a completely controlled and safe environment. It is big enough for FlatFish to operate freely.
+The center of the maritime exploration
+hall\footnote{http://robotik.dfki-bremen.de/en/research/research-facilities/maritime-exploration-hall.html}
+at the facilities of DFKI RIC in Bremen is a 3.5 million liter salt water test tank. This
+tank allows for comprehensive tests of systems and control algorithms in a completely
+controlled and safe environment. It is big enough for FlatFish to operate freely.
 
-The coastal waters around Salvador have an average depth of approximately 30m and offer variety of different testing environments, close to offshore conditions with respect to visibility and currents. The weather  allows for a nearly year around testing with only a short time in autumn (May to mid July) where high waves and thunderstorms can limit the ability to test. 
+The coastal waters around Salvador have an average depth of approximately 30m and offer
+variety of different testing environments, close to offshore conditions with respect to
+visibility and currents. The weather  allows for a nearly year around testing with only a
+short time in autumn (May to mid July) where high waves and thunderstorms can limit the
+ability to test. 
 
-Both locations will have their own FlatFish AUV. The first is being built in Bremen, the second will be integrated in Salvador. Having two vehicle allows a seamless test, evaluation and improvement of algorithms, hardware and operational procedures. For example can a new algorithm for sensor processing be tested in the clear water environment at Bremen and its principal functionality can be verified before it is tested in the ocean environment in Salvador. The results of the tests in Salvador can then be analyzed at both locations, any problems can be identified and the testing cycle can start again. With both location typed working in parallel this cycle can be very quick and efficient.
+Both locations will have their own FlatFish AUV. The first is being built in Bremen, the
+second will be integrated in Salvador. Having two vehicle allows a seamless test,
+evaluation and improvement of algorithms, hardware and operational procedures. For example
+can a new algorithm for sensor processing be tested in the clear water environment at
+Bremen and its principal functionality can be verified before it is tested in the ocean
+environment in Salvador. The results of the tests in Salvador can then be analyzed at both
+locations, any problems can be identified and the testing cycle can start again. With both
+location typed working in parallel this cycle can be very quick and efficient.
 
-Working in a trans-continental co-operation forced the team to establish modern methods of distributed development, change management, issue tracking, document management and communication. The primary tool for co-ordinating the development work is github\footnote{https://github.com/} which already brings all the tools needed to manage a distribute team of software developers. Additional to github a built server is used to verify the current state of the software integration and runrun.it\footnote{https://runrun.it/} is used to manage the tasks of the team members and co-ordinate the work between them. 
+Working in a trans-continental co-operation forced the team to establish modern methods of
+distributed development, change management, issue tracking, document management and
+communication. The primary tool for co-ordinating the development work is
+github\footnote{https://github.com/} which already brings all the tools needed to manage a
+distribute team of software developers. Additional to github a built server is used to
+verify the current state of the software integration and
+runrun.it\footnote{https://runrun.it/} is used to manage the tasks of the team members and
+co-ordinate the work between them. 
 
 \section{The FlatFish AUV}
 
@@ -545,7 +683,9 @@ Working in a trans-continental co-operation forced the team to establish modern 
 
 \subsection{Software Architecture}
 
-Based on \cite{albiez2010} and \cite{meinecke2013} using ROCK\footnote{http://rock-robotics.org/} and component base development \cite{Joyeux2011} principal shown in figure~\ref{fig:sw_arch}
+Based on \cite{albiez2010} and \cite{meinecke2013} using
+ROCK\footnote{http://rock-robotics.org/} and component base development \cite{Joyeux2011}
+principal shown in figure~\ref{fig:sw_arch}
 
 \begin{figure}[!t]
 	\centering
@@ -553,7 +693,6 @@ Based on \cite{albiez2010} and \cite{meinecke2013} using ROCK\footnote{http://ro
 	\caption{FlatFish}
 	\label{fig:sw_arch}
 \end{figure}
-
 
 \subsection{Simulation}
 
@@ -583,7 +722,8 @@ integration with ROck done in \cite{watanabe2015} see figure~\ref{fig:simulation
 
 \subsection{Inspection System}
 
-Laser line based on \cite{duda2013} teste ind turbid water \cite{albiez2015} and \cite{mcleod2013}
+Laser line based on \cite{duda2013} teste ind turbid water \cite{albiez2015} and
+\cite{mcleod2013}
 
 \begin{figure}[!t]
 	\centering
@@ -595,7 +735,10 @@ Laser line based on \cite{duda2013} teste ind turbid water \cite{albiez2015} and
 
 \section{Integration Tests}
 
-In June 2015 the integration of the first vehicle was finished in Bremen, Germany and a series of specification compliance tests have been done. The goal of these tests were to check whether the fully integrated AUV complies to the specifications with respect to the mechatronic system and the basic motion capabilities. 
+In June 2015 the integration of the first vehicle was finished in Bremen, Germany and a
+series of specification compliance tests have been done. The goal of these tests were to
+check whether the fully integrated AUV complies to the specifications with respect to the
+mechatronic system and the basic motion capabilities. 
 
 \begin{figure}[!t]
 	\centering
@@ -604,25 +747,39 @@ In June 2015 the integration of the first vehicle was finished in Bremen, German
 	\label{fig:flatfish2}
 \end{figure}
 
-The test were done in the large saltwater tank of the maritime exploration hall in Bremen. A mock-up of a pipeline was installed as a visual target for the vehicle and the experiments were documented by a Mini-ROV (see figure \ref{fig:flatfish2}). 
+The test were done in the large saltwater tank of the maritime exploration hall in Bremen.
+A mock-up of a pipeline was installed as a visual target for the vehicle and the
+experiments were documented by a Mini-ROV (see figure \ref{fig:flatfish2}). 
 
-The tests consisted in a series of tracks the FlatFish had to follow while using the INS/DVL based dead-reckoning pose estimator and the way point following behaviour. The pipeline mock-up was the target for testing the downward looking camera systems and used as a the test object for the pipeline detector. The FlatFish AUV was able to successfully fulfill all the parts of the test. The way point navigation autonomously followed a set of way points within the tank over a time period of 30 minutes. All sensors of FlatFish worked correctly and the pipeline detector was able to detect the pipeline whenever FlatFish crossed it. 
+The tests consisted in a series of tracks the FlatFish had to follow while using the
+INS/DVL based dead-reckoning pose estimator and the way point following behaviour. The
+pipeline mock-up was the target for testing the downward looking camera systems and used
+as a the test object for the pipeline detector. The FlatFish AUV was able to successfully
+fulfill all the parts of the test. The way point navigation autonomously followed a set of
+way points within the tank over a time period of 30 minutes. All sensors of FlatFish
+worked correctly and the pipeline detector was able to detect the pipeline whenever
+FlatFish crossed it. 
 
 \section{Conclusion}
 
-The FlatFish AUV is the first step to an integrated sub-sea resident inspection system for offshore oil and gas. The specification compliance tests done at the DFKI RIC in Bremen, Germany showed that the mechatronic design of FlatFish (...)
-
-
-
+The FlatFish AUV is the first step to an integrated sub-sea resident inspection system for
+offshore oil and gas. The specification compliance tests done at the DFKI RIC in Bremen,
+Germany showed that the mechatronic design of FlatFish (...)
 
 % conference papers do not normally have an appendix
 
 
 % use section* for acknowledgement
 \section*{Acknowledgment}
-The FlatFish project is part of the ongoing research and development program of BG Group Brasil. It is funded by the Brasilian government via the Agencia Nacional do Petroleo, Gas Natural e Biocombustiveis (ANP) and, due to its high innovative nature, co-funded by the EMPRAPII (Empresa Brasileira de Pesquisa e Inovacao Industrial) program. 
 
-The authors would like to thank BG Group for the excellent support of the project, with special thanks to Gordon Laurenson, Phil Bremner, Diana Charles, Rosane Zagatti and John Costin.
+The FlatFish project is part of the ongoing research and development program of BG Group
+Brasil. It is funded by the Brasilian government via the Agencia Nacional do Petroleo, Gas
+Natural e Biocombustiveis (ANP) and, due to its high innovative nature, co-funded by the
+EMPRAPII (Empresa Brasileira de Pesquisa e Inovacao Industrial) program. 
+
+The authors would like to thank BG Group for the excellent support of the project, with
+special thanks to Gordon Laurenson, Phil Bremner, Diana Charles, Rosane Zagatti and John
+Costin.
 
 % references section
 
