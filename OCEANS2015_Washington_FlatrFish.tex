@@ -570,7 +570,7 @@ integration with ROck done in \cite{watanabe2015} see figure~\ref{fig:simulation
 \begin{center}
 	\subfloat[During transitions the IMU/DVL based localisation is supported by tracking of asset strucutres like flowlines ]{\includegraphics[width=\columnwidth]{FF-NavigationOverview-1}}\\
 	\subfloat[Closer (less than 100 m) to major asset structures the forward looking imaging sonar and the obstacle avoidance sonar is used to localise the structure]{\includegraphics[width=\columnwidth]{FF-NavigationOverview-2}}\\
-	\subfloat[During inspection the 3D reconstruction data (visual and sonar) is used to track the relative position to the structure ]{\includegraphics[width=\columnwidth]{FF-NavigationOverview-3}}\\
+	\subfloat[During inspection the 3D reconstruction data (visual and sonar) is used to track its relative position to the structure ]{\includegraphics[width=\columnwidth]{FF-NavigationOverview-3}}\\
 \caption{Overview of the three major navigation modalities for the layout-supported navigation of FlatFish }
 \label{fig:nav_overview}
 \end{center}
@@ -590,15 +590,18 @@ Laser line based on \cite{duda2013} teste ind turbid water \cite{albiez2015} and
 
 \section{Integration Tests}
 
-In June 2015 the integration of the first vehicle was finished in Bremen, Germany and a series of specification compliance tests have been done. These test were (...)
+In June 2015 the integration of the first vehicle was finished in Bremen, Germany and a series of specification compliance tests have been done. The goal of these tests were to check whether the fully integrated AUV complies to the specifications with respect to the mechatronic system and the basic motion capabilities. 
 
 \begin{figure}[!t]
 	\centering
 	\includegraphics[width=0.9\columnwidth]{FlatFish-2.jpg}
-	\caption{FlatFish in the maritime test tank at the DFKI facilities in Bremen during the specification compliance tests}
+	\caption{FlatFish in the maritime test tank at the DFKI facilities in Bremen during the specification compliance tests. The pipeline mock-up is visible in the top left of the picture.}
 	\label{fig:flatfish2}
 \end{figure}
 
+The test were done in the large saltwater tank of the maritime exploration hall in Bremen. A mock-up of a pipeline was installed as a visual target for the vehicle and the experiments were documented by a Mini-ROV (see figure \ref{fig:flatfish2}). 
+
+The tests consisted in a series of tracks the FlatFish had to follow while using the IMU/DVL based dead-reckoning pose estimator and the way point following behaviour. The pipeline mock-up was the target for testing the downward looking camera systems and used as a the test object for the pipeline detector. The FlatFish AUV was able to successfully fulfill all the parts of the test. The way point navigation autonomously followed a set of way points within the tank over a time period of 30 minutes. All sensors of FlatFish worked correctly and the pipeline detector was able to detect the pipeline whenever FlatFish crossed it. 
 
 \section{Conclusion}
 
