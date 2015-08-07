@@ -683,14 +683,48 @@ co-ordinate the work between them.
 
 \subsection{Software Architecture}
 
-Based on \cite{albiez2010} and \cite{meinecke2013} using
-ROCK\footnote{http://rock-robotics.org/} and component base development \cite{Joyeux2011}
-principal shown in figure~\ref{fig:sw_arch}
+The vehicle's software architecture is based on the Robot Construction Kit
+(Rock\footnote{http://rock-robotics.org/}), a component-based software integration
+framework for robotics. The work done to use Rock on FlatFish is a continuation of
+previous work, to which some of the authors participated, on other AUVs~\cite{albiez2010}
+and H-ROVs~\cite{meinecke2013}.
+
+From the point of view of the vehicle development, Rock provides the common type of tools
+and services that is nowadays considered standard: visualization, logging (saving data)
+and log replay (passing logged data to live components for testing) and state monitoring.
+Where Rock differentiates itself is in its focus on robustness.
+
+Rock's architecture design supports the integration and \emph{coordination} of software
+components that have a single purpose~\cite{Joyeux2013}, that is have a well-defined function that is as
+stateless as possible. This is in contrast with the common approach of ``fat components'',
+whose behaviour very commonly depends on a lot of internal state, and is therefore hard to
+assess externally. The components in the FlatFish architecture are meant to be designed
+for a single purpose, which makes external diagnostic easier, and allow to make them
+\emph{fail early}. The handling of these faults is then delegated to the system's
+coordination layer, Syskit\cite{Joyeux2011}.
+
+Syskit is a model-based approach designed to handle a component-based approach to data
+processing in the robotic context~\ref{fig:sw_arch}. In addition to its diagnostic and fault recovery
+aspects, it allows to design the different configurations of the system's component
+networks, building a \emph{Behaviour Pool}, and then combine them in more complex systems
+(correct-by-construction). At runtime, these various subsystems can then be switched on or
+off when needed by the \emph{Plan Manager}, while leaving the details of which parts of
+the software should be shut down or brought up to the model-based approach. This allows to
+very easily provide hybrid ROV/AUV functionality, where any AUV functionality is available
+to a ROV operator to enable or disable when needed, including fully autonomous mission
+modes.
+
+Given Syskit's complexity, the software architecture includes \emph{Vehicle Management
+and Safety} functionality. This functionality, separated from the Syskit-based blocks, has
+low autonomy. Its goal is to verify properties that are critical to the underwater asset's
+integrity as well as the vehicle safety (the former having higher priority than the
+latter). It can take over the vehicle's control to enter a safe mode when needed,
+bypassing completely Syskit's own functions.
 
 \begin{figure}[!t]
 	\centering
 	\includegraphics[width=0.9\columnwidth]{sw_arch_overview}
-	\caption{FlatFish}
+	\caption{High-level view of the FlatFish control architecture}
 	\label{fig:sw_arch}
 \end{figure}
 
