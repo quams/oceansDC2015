@@ -1,0 +1,51 @@
+\begin{table}[!t]
+% increase table row spacing, adjust to taste
+\renewcommand{\arraystretch}{1.3}
+% if using array.sty, it might be a good idea to tweak the value of
+% \extrarowheight as needed to properly center the text within the cells
+\caption{FlatFish -- Technical Data}
+\label{tab:tech}
+\centering
+% Some packages, such as MDW tools, offer better commands for making tables
+% than the plain LaTeX2e tabular which is used here.
+\begin{tabular}{|l|l|}
+\hline
+Depth rating 	  & 300 m \\ \hline
+
+Weight (in air)		& 275 kg \\ \hline
+
+Size (LWH)			&	220 cm x 105 cm x 50 cm \\ \hline
+
+Propulsion			& 6x 60N Enitech ring thrusters \\
+ & (120N in each direction) \\ \hline
+
+Battery	 			&  Lithium-Ion battery 5,8 kWh (11,6 kWh) @ 48V\\ \hline 
+
+Communication & Rock7mobile RockBlock Iridium satellite modem (1,6 GHz) \\
+(surface) 		& Digi XBee-Pro-868 (868 MHz)\\
+ & ubiquiti PicoStation M2 HP WLAN-Modul (2,4 GHz) \\ \hline
+
+Communication & Evologics S2CR 48/78 kHz \\
+(submerged)	&	usable as USBL transponder \\ \hline
+
+Communication & 10 GBit/s optical fibre \\
+(tethered)			& 1 GBit/s Cat5e (max. 50m) \\ \hline
+
+
+Light	& 4x Bowtech LED-K-3200 (3200 lumen each) \\ \hline
+
+Laser Line & 2x Picotronic LD532-20-3(20x80)45-PL line laser \\
+projector & 20mW each @ 532nm \\ \hline
+
+Sonar	& BlueView MB1350-45 Multibeam Profiler (inspection sonar) \\
+ & Tritech Gemini 720i Multibeam Imager (navigation sonar) \\
+ & 2x Tritech Micron Sonar (obstacle avoidance) \\ \hline
+  
+Camera	& 4x Basler ace acA2040-gc25 \\
+	& 2048x2048 at 25 frames/s, colour, GigabitEthernet \\\hline
+	
+Depthsensor & Paroscientific 8CDP700-I \\
+
+DVL &	Rowe SeaProfiler DualFrequency 300/1200 kHz \\ \hline
+\end{tabular}
+\end{table}
