@@ -358,7 +358,7 @@ Hilljegerdes\IEEEauthorrefmark{3}, Sven Kroffke\IEEEauthorrefmark{3}, \\
 		Mimoso\IEEEauthorrefmark{1}, Rafael Saback\IEEEauthorrefmark{1}, Joao 
 		Neto\IEEEauthorrefmark{1}, Diego Cesar\IEEEauthorrefmark{1}, \\
                 Gustavo Neves\IEEEauthorrefmark{1}, Thomio Watanabe\IEEEauthorrefmark{1},
-	   and Frank Kirchner\IEEEauthorrefmark{2}\IEEEauthorrefmark{2}\IEEEauthorrefmark{1}}
+	   and Frank Kirchner\IEEEauthorrefmark{2}\IEEEauthorrefmark{3}\IEEEauthorrefmark{1}}
 	\IEEEauthorblockA{\IEEEauthorrefmark{1}BIR --  Brasilian Institute for Robotics, SENAI 
 	CIMATEC, Salvador, Bahia, Brasil, Email: jan.albiez@fieb.org.br}
 	\IEEEauthorblockA{\IEEEauthorrefmark{2}RIC -- Robotics Innovation Center, DFKI 
@@ -686,6 +686,8 @@ co-ordinate the work between them.
 
 \subsection{Mechatronic Design}
 
+The main goal fo the FlatFish design was to unite all the necessary sensors, the thrusters, 
+the battery systems and the electronics in a compact system. 
 
 \begin{figure}[!t]
 	\centering
@@ -838,10 +840,47 @@ The fusion of all this modalities into the final localization solution will be d
 \subsection{Inspection System}
 \label{sec:insp}
 
-The inspection system is the key element of the FlatFish system. 
+The inspection system is the key element of the FlatFish system. To fulfill the requirements 
+on inspection data a multi-modal approach was chosen. The idea behind this approach is 
+to decrease the influence of the environmental conditions, mainly visibility, on the gathering 
+of inspection data as much as possible.
 
-Laser line based on \cite{duda2013} teste ind turbid water \cite{albiez2015} and
-\cite{mcleod2013}
+The inspection sensor system consists of three sensor modalities, two optical and one 
+acoustical:
+\paragraph*{\textbf{Profiling Multi-Beam Sonar}} To allow a general inspection from greater 
+distances or in very high turbidities (bad visibility), FlatFish is equipped with a high resolution 
+multi-beam profiling sonar (Blueview MB1350). The sonar is mounted in the front of the AUV 
+and can be turned by an electric rotator to change the orientation of the sonar fan between 
+horizontal and vertical. By tracking the vehicle motion the profiling sonar is used to generate 
+a principal 3D modell of the target structure in bad visibility and will be used as an 
+additional modality for the visual inspection.
+
+\paragraph*{\textbf{Stereo Camera Systems}} FlatFish has two stereo camera systems. 
+One forward looking system mounted in the front and one downward looking system 
+mounted in the first quarter of the AUV. Both system use the same 2k ethernet cameras 
+(see table~\ref{tab:tech}) which are directly connected to the inspection PC system. The 
+camera systems are supplemented by a set of dimable lamps each. The system is expected 
+to work for visibility of more than 2m. For lesser visibilities the data acquired has not the 
+quality needed for the inspection. The stereo cameras are used in conjunction with a 
+structure-for.motion algorithm to generate a high resolution, textured 3D model of the 
+structure to be inspected.
+
+\paragraph*{\textbf{Laser line Projection}} Two green laser line projectors (20mW@532nm) 
+are mounted in the vehicle, which can be switched on by software and project a laser line 
+into the view of each of the stereo cameras (see figure~\ref{fig:flatfishlaser}). With the help 
+of an automatic extraction system 
+(see \cite{duda2013}) and by tracking the motion of AUV, the laser line is used to generate a 
+3D model of the inspection target (e.g.~like in \cite{mcleod2013}). The big advantage of the 
+laser line projector is, that it works up to a high turbidity (see \cite{albiez2015}). But even in 
+god visibility it can support the pure stereo system by giving the exact distances to a target.
+
+The inspection itself is pre-planned by using either the CAD model of the structure or a 
+model from a previous run. While inspecting an on-line model is generated which is used for 
+navigation and verifying the coverage of the structure. After the return of the AUV to the 
+docking station and the uploading of the data to top-side this model is used as the basis to 
+generate the high-resolution inspection model. This inspection model is linked to all the raw 
+data used to generated (e.f.~videos) and allows the operators of the asset to do a structure 
+based browsing of the inspection results.
 
 \begin{figure}[!t]
 	\centering
