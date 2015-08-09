@@ -425,32 +425,17 @@ Hilljegerdes\IEEEauthorrefmark{3}, Sven Kroffke\IEEEauthorrefmark{3}, \\
 
 
 \begin{abstract}
-%\boldmath
-The abstract goes here.
+Currently the inspection of any kind of industrial underwater structures is either done by 
+remotely operated vehicles or by divers. Since the number of underwater structures grows 
+every year due to, for example, new oil and gas fields or offshore wind farms, the need for a 
+continuous, 24/7 available method to inspect theses structures rises. The FlatFish project, 
+which is an initiative of BG Group Brasil and the Braszilian Institute of Robotics in Salvador 
+aims at developing a sub-sea resident AUV which can inspect the infrastructure in an oil 
+and gas asset on demand. FlatFish is a compact AUV which is designed to acquire a 
+high-resolution 
 \end{abstract}
-% IEEEtran.cls defaults to using nonbold math in the Abstract.
-% This preserves the distinction between vectors and scalars. However,
-% if the conference you are submitting to favors bold math in the abstract,
-% then you can use LaTeX's standard command \boldmath at the very start
-% of the abstract to achieve this. Many IEEE journals/conferences frown on
-% math in the abstract anyway.
 
-% no keywords
-
-
-
-
-% For peer review papers, you can put extra information on the cover
-% page as needed:
-% \ifCLASSOPTIONpeerreview
-% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
-% \fi
-%
-% For peerreview papers, this IEEEtran command inserts a page break and
-% creates the second title. It will be ignored for other modes.
 \IEEEpeerreviewmaketitle
-
-
 
 \section{Introduction}
 
@@ -686,9 +671,74 @@ co-ordinate the work between them.
 
 \subsection{Mechatronic Design}
 
-The main goal fo the FlatFish design was to unite all the necessary sensors, the thrusters, 
-the battery systems and the electronics in a compact system. 
+The main goal fo the FlatFish design was to integrate all the necessary sensors, the 
+thrusters, the battery systems and the electronics in a compact system. Early in the design 
+phase the decision was made to use an open frame design since it allows more freedom in 
+placing components and sensors. Figure~\ref{fig:sensor_placement} shows the CAD model 
+of the AUV without the cover to illustrate the placement of the components. The inspection 
+sensors are described in section~\ref{sec:insp}, the navigation system is the topic of 
+section~\ref{sec:nav}, all other components are described in more detail in the following.
 
+\paragraph{\textbf{Frame, Support and Cover}} The frame is made out of a titanium-sheet 
+buoyancy-foam composite and the launch and recovery hook support is welded titanium. 
+This design allows for a very lightweight but still robust structure. The cover is made out of 
+fiberglass and its primary function is to reduce the potential points of entanglement while its 
+secondary function is to reduce the hydrodynamic resistance.
+
+\paragraph{\textbf{Pressure Housings}} An analysis of the volume used by the electronics 
+and the batteries showed that distributing the dry electronics into multiple smaller titanium 
+pressure housings would reduce the size and weight of the housings themselves. For 
+reasons of modularity and weight distribution within the system, the batteries got two 
+pressure housings for themselves and the PC systems, power electronics etc.~was 
+distributed in two housings. The lids of the pressure housings are easy accessible from the 
+side of the vehicle which facilitates maintenance.
+
+\paragraph{\textbf{Propulsion System}} FlatFish is moved by six hub-less, pressure neutral 
+ring thrusters. These kind of thrusters are very robust with respect to time spend in water 
+and are able to withstand most kinds of debris without being blocked. The thrusters are 
+configured in a rectangular configuration with two acting in each of the primary directions 
+surge, heave and sway. This configuration is less agile than the ROV type vector thrust but 
+much more efficient since all thrust is given into the desired direction of motion.
+
+\paragraph{\textbf{Communication System}} FlatFish is equipped with a wide range of 
+communication channels. All surface communication systems are gathered in a 
+communications tower (com-tower) at the back of the system which rises significant above 
+the water when FlatFIsh is surfaced. The com-tower is equipped with an Irdium satellite 
+modem for world wide communication, a GPS receiver, a 2.4GHz wireless LAN access point, 
+an XBee pro modem for redundancy and safety and a high-power LED beacon. For 
+communication when submerged  FlatFish is equipped with an acoustic modem. The tower 
+can be configured to automatically transmit its position via Iridium when it has satellite 
+contact and it is equipped with its own battery.
+
+It is possible to equip FlatFish with a short (100m) copper tether or a long fibre-optic cable 
+turning it into an hybrid ROV. While this feature is not needed in the final application 
+scenario it is a great advantage during development.
+
+\paragraph{\textbf{System Management}} All electrical components are connected to the 
+power supply via electronic fuses, which are controlled by the system management board. 
+The system management board is the part of FlatFish which controls the power to all other 
+components in the system. It is the first component which powers up after a system start 
+and the last component which switches off. The system management is directly connected 
+to the XBee communication, acts as proxy for the underwater communication and controls 
+the access to the propulsion system. The system management board itself is equipped with 
+a watch dog and a brown out circuit. Via the system management the AUV can activate, 
+de-activate or reboot every component of the FlatFish. The only exception being the battery 
+powered com-tower. 
+
+This setup is the basis for a robust and fault tolerant system, which is a necessity for 
+long-term deployment. Every component of the AUV can be switched of in the case of a 
+major fault or rebooted for fault recovery. Since the system management regulates the 
+access to the thrusters and can be contacted via every communication channel the AUV 
+can be forced to surface even when the main control software is broken or directly 
+controlled on the surface via WiFi or XBee.
+
+\paragraph{\textbf{Computer System}} FlatFish is equipped with two computer systems. 
+One is the dedicated control PC, which runs the low-level control, the navigation system 
+and the mission management. The second PC is the payload system, end therefore is the 
+host of the inspection software. The PC are connected via Gigabit Ethernet, which acts also 
+as the main communication backbone.
+
+Figure~\ref{fig:flatfish1} shows the fully integrated system at the DFKI facilities in Bremen.
 \begin{figure}[!t]
 	\centering
 	\includegraphics[width=0.9\columnwidth]{FlatFish-1.jpg}
@@ -778,6 +828,7 @@ details about this integration can be found here~\cite{watanabe2015}.
 
 
 \subsection{Navigation System}
+\label{sec:nav}
 
 One of the biggest problems for AUVs is a precise localization while en route. Contrary to 
 ROVs an AUV normally has no base vessel which can localize it acoustically. An AUV solely 
