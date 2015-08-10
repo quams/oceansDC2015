@@ -351,13 +351,16 @@
 \begin{document}
 \title{FlatFish -- A compact AUV for sub sea resident inspection tasks}
 
-\author{\IEEEauthorblockN{Jan Albiez\IEEEauthorrefmark{1}\IEEEauthorrefmark{2}, Sylvain 
-Joyeux\IEEEauthorrefmark{1}, Christopher Gaudig\IEEEauthorrefmark{2}, Jens 
-Hilljegerdes\IEEEauthorrefmark{3}, Sven Kroffke\IEEEauthorrefmark{3}, \\
-		Christian Schoo\IEEEauthorrefmark{2}, Sascha Arnold\IEEEauthorrefmark{2}, Geovane 
-		Mimoso\IEEEauthorrefmark{1}, Rafael Saback\IEEEauthorrefmark{1}, Joao 
-		Neto\IEEEauthorrefmark{1}, Diego Cesar\IEEEauthorrefmark{1}, \\
-                Gustavo Neves\IEEEauthorrefmark{1}, Thomio Watanabe\IEEEauthorrefmark{1},
+\author{
+    \IEEEauthorblockN{Jan Albiez\IEEEauthorrefmark{1}\IEEEauthorrefmark{2}, 
+    Sylvain Joyeux\IEEEauthorrefmark{1}, Christopher Gaudig\IEEEauthorrefmark{2}, 
+    Jens Hilljegerdes\IEEEauthorrefmark{3}, Sven Kroffke\IEEEauthorrefmark{3}, \\
+    Christian Schoo\IEEEauthorrefmark{2}, Sascha Arnold\IEEEauthorrefmark{2},
+    Geovane Mimoso\IEEEauthorrefmark{1}, Rafael Saback\IEEEauthorrefmark{1}, 
+    Joao Neto\IEEEauthorrefmark{1}, Diego Cesar\IEEEauthorrefmark{1}, \\
+    Gustavo Neves\IEEEauthorrefmark{1}, Thomio Watanabe\IEEEauthorrefmark{1},
+    Patrick Merz Paranhos\IEEEauthorrefmark{1}\IEEEauthorrefmark{2},
+    Marco Reis\IEEEauthorrefmark{1},
 	   and Frank Kirchner\IEEEauthorrefmark{2}\IEEEauthorrefmark{3}\IEEEauthorrefmark{1}}
 	\IEEEauthorblockA{\IEEEauthorrefmark{1}BIR --  Brasilian Institute for Robotics, SENAI 
 	CIMATEC, Salvador, Bahia, Brasil, Email: jan.albiez@fieb.org.br}
@@ -521,7 +524,7 @@ of a long-term research road-map of BG Group Brazil in the area of robotic for o
 production. The development of the AUV is devided in two phases: In the first phase the
 development infrastructure in Brazil will be developed, the AUV will be designed and
 integrated, and the first inspection tests will be conducted inshore of the coast of
-Salvador, Brazil and in the maritime test tank at DFKI in Bremen, Germany, The second
+Salvador, Brazil and in the maritime test tank at DFKI in Bremen, Germany, the second
 phase will concentrate on extended offshore trials of the complete system, including the
 docking station, within an asset of BG Group. Currently the project is at the end of the
 first phase.
@@ -600,7 +603,7 @@ feasible with these systems.
 
 SubSea 7s autonomous inspection vehicle (AIV) \cite{AIV} comes close to the requirements
 defined for the FlatFish project. Nevertheless the AIV mainly operates sonar based and
-keeps longer distance to the inspection target and lacks additionally lacks the required
+keeps longer distance to the inspection target and additionally lacks the required
 high resolution video system.
 
 Lockheed Martins Marlin \cite{Marlinmk1} is a huge AUV primarily designed for carrying a
@@ -632,11 +635,10 @@ FlatFish is developed in a joint effort between the Robotics Innovation Center (
 DFKI in Bremen, Germany and the Brazilian Institute for Robotics (BIR) in Salvador,
 Brazil. This co-operation opens the unique opportunity to combine the indoor testing
 facilities and the experience on autonomous underwater robots in Bremen with the 
-extended
-testing opportunities and the emerging commercial and scientific market in Brazil.
+extended testing opportunities and the emerging commercial and scientific market in Brazil.
 
 The key elements of this co-operation within the project are the testing facilities which
-complement each other, the joint development of hard and software and the training of
+complement each other, the joint development of hardware and software and the training of
 researchers and personnel.
 
 The center of the maritime exploration
@@ -814,6 +816,7 @@ namely the following was missing
     \item water effect simulation for cameras, in particular the loss of color and the
         limited depth of view,
     \item physical effects of water (buoyancy, drag and added mass),
+    \item simulation of different sonar types,
     \item the Rock integration
 \end{itemize}
 
@@ -850,8 +853,8 @@ global localization FlatFish uses pipelines and umbilicals like roads connecting
 parts of the asset. FlatFish metaphorically carries a map of the asset with it and uses this 
 map for navigation. This layout supported navigation uses several modalities which are 
 fusioned whenever they are applicable (see also figure \ref{fig:nav_overview}):
-\paragraph*{\textbf{INS/DVL}} The fusion of the KVH, the DVL and the vehicles m
-otion model into  a dead-reckoning system by using an Extended Kalman Filter (EKF).
+\paragraph*{\textbf{INS/DVL}} The fusion of the KVH, the DVL and the vehicles motion 
+model into  a dead-reckoning system by using an Extended Kalman Filter (EKF).
 \paragraph*{\textbf{USBL}} Within a 1km range of the docking station the USBL/modem is 
 used to help the FlatFish finding its docking station. Current plans only have the docking 
 station equipped with an USBL, but it is also thinkable, that other parts of the asset like 
@@ -916,7 +919,7 @@ mounted in the first quarter of the AUV. Both system use the same 2k ethernet ca
 camera systems are supplemented by a set of dimable lamps each. The system is expected 
 to work for visibility of more than 2m. For lesser visibilities the data acquired has not the 
 quality needed for the inspection. The stereo cameras are used in conjunction with a 
-structure-for.motion algorithm to generate a high resolution, textured 3D model of the 
+structure-for-motion algorithm to generate a high resolution, textured 3D model of the 
 structure to be inspected.
 
 \paragraph*{\textbf{Laser line Projection}} Two green laser line projectors (20mW@532nm) 
@@ -950,9 +953,10 @@ based browsing of the inspection results.
 \section{Integration Tests}
 
 In June 2015 the integration of the first vehicle was finished in Bremen, Germany and a
-series of specification compliance tests have been done. The goal of these tests were to
-check whether the fully integrated AUV complies to the specifications with respect to the
-mechatronic system and the basic motion capabilities. 
+series of specification compliance tests have been done by BIR scientist together with the 
+staff at DFKI. The goal of these tests were to check whether the fully integrated AUV 
+complies to the specifications with respect to the mechatronic system and the basic motion 
+capabilities. 
 
 The test were done in the large saltwater tank of the maritime exploration hall in Bremen.
 A mock-up of a pipeline was installed as a visual target for the vehicle and the
@@ -977,15 +981,17 @@ system outlined.
 The specification compliance tests done at the DFKI RIC in Bremen,
 Germany showed that the mechatronic design of FlatFish is in accordance to the 
 specification. The next step within the project are extensive tests inshore of the coast of 
-Salvador. As inspection target one of the various shipwrecks in the Bahian waters will be 
-chosen, since currently no offshore assets are available for testing. 
+Salvador with the Brasilian FlatFish. As inspection target one of the various shipwrecks in 
+the Bahian waters will be chosen, since the process to qualify FlatFish to work in an offshore 
+asset is still under work. 
 
 In parallel the design and integration of the docking station prototype will be done. The 
 tests of the docking process will primarily be done in the clear water tank in Bremen.
 
-Future work on FlatFish will focus on enhancing the inspection capabilities, doing field trials 
-in an offshore oil and gas asset and enhancing the navigation system by incorporating new 
-methods like magnetic tracking \cite{christensen2015} and increasing the autonomy. 
+Future work on FlatFish will focus on qualification of FlatFIsh for offshore asstes, enhancing 
+the inspection capabilities, doing field trials in an offshore oil and gas asset and enhancing 
+the navigation system by incorporating new methods like magnetic tracking 
+\cite{christensen2015} and increasing the autonomy. 
 
 \begin{figure}[!t]
 	\centering
