@@ -871,54 +871,52 @@ The fusion of all these modalities into the final localization solution will be 
 \subsection{Inspection System}
 \label{sec:insp}
 
-The inspection system is the key element of the FlatFish system. To fulfill the requirements 
-on inspection data a multi-modal approach was chosen. The idea behind this approach is 
+The inspection system is the key element of FlatFish. To fulfill the requirements 
+regarding inspection data, a multi-modal approach was chosen. The idea behind this is 
 to decrease the influence of the environmental conditions, mainly visibility, on the gathering 
 of inspection data as much as possible.
 
 The inspection sensor system consists of three sensor modalities, two optical and one 
 acoustical:
 \paragraph*{\textbf{Profiling Multi-Beam Sonar}} To allow a general inspection from greater 
-distances or in very high turbidities (bad visibility), FlatFish is equipped with a high resolution 
-multi-beam profiling sonar (Blueview MB1350). The sonar is mounted in the front of the AUV 
+distances or in very high turbidities (bad visibility), FlatFish is equipped with a high-resolution 
+multi-beam profiling sonar (Blueview MB-1350). This sensor is mounted at the front of the AUV 
 and can be turned by an electric rotator to change the orientation of the sonar fan between 
-horizontal and vertical. By tracking the vehicle motion the profiling sonar is used to generate 
-a principal 3D modell of the target structure in bad visibility and will be used as an 
+horizontal and vertical. By tracking the vehicle motion, the profiling sonar is used to generate 
+a 3D model of the target structure in bad visibility and will be used as an 
 additional modality for the visual inspection.
 
-\paragraph*{\textbf{Stereo Camera Systems}} FlatFish has two stereo camera systems. 
-One forward looking system mounted in the front and one downward looking system 
-mounted in the first quarter of the AUV. Both system use the same 2k ethernet cameras 
-(see table~\ref{tab:tech}) which are directly connected to the inspection PC system. The 
-camera systems are supplemented by a set of dimable lamps each. The system is expected 
-to work for visibility of more than 2m. For lesser visibilities the data acquired has not the 
-quality needed for the inspection. The stereo cameras are used in conjunction with a 
-structure-for-motion algorithm to generate a high resolution, textured 3D model of the 
+\paragraph*{\textbf{Stereo Camera Systems}} FlatFish is equipped with two stereo camera systems. 
+One forward-looking system and one downward-looking system 
+ also mounted in the front half of the AUV. Both systems use the same 2k Ethernet cameras 
+(see table~\ref{tab:tech}) which are directly connected to the inspection PC. The 
+camera systems are supplemented by a set of dimmable lamps each. The system is expected 
+to work in conditions where the visibility range exceeds 2m. For higher turbidities the data acquired does not provide the 
+quality required for the inspection. The stereo cameras are used in conjunction with a 
+structure-for-motion algorithm to generate a high-resolution, textured 3D model of the 
 structure to be inspected.
 
-\paragraph*{\textbf{Laser line Projection}} Two green laser line projectors (20mW@532nm) 
-are mounted in the vehicle, which can be switched on by software and project a laser line 
-into the view of each of the stereo cameras (see figure~\ref{fig:flatfishlaser}). With the help 
+\paragraph*{\textbf{Laser Line Projection}} FlatFish features two green laser line projectors (20mW@532nm) which can be switched on by software and project a laser line 
+onto the image of each of the stereo cameras (see figure~\ref{fig:flatfishlaser}). With the help 
 of an automatic extraction system 
 (see \cite{duda2013}) and by tracking the motion of AUV, the laser line is used to generate a 
-3D model of the inspection target (e.g.~like in \cite{mcleod2013}). The big advantage of the 
-laser line projector is, that it works up to a high turbidity (see \cite{albiez2015}). But even in 
-god visibility it can support the pure stereo system by giving the exact distances to a target.
+3D model of the inspection target (e.g.~like in \cite{mcleod2013}). The advantage of the 
+laser line projector is, that it works even in high turbidities (see \cite{albiez2015}). But even under
+good visibility conditions it can support the stereo system by providing exact distances to a target.
 
 The inspection itself is pre-planned by using either the CAD model of the structure or a 
-model from a previous run. While inspecting an on-line model is generated which is used for 
-navigation and verifying the coverage of the structure. After the return of the AUV to the 
-docking station and the uploading of the data to top-side this model is used as the basis to 
-generate the high-resolution inspection model. This inspection model is linked to all the raw 
-data used to generated (e.f.~videos) and allows the operators of the asset to do a structure 
-based browsing of the inspection results.
+model from a previous run. While inspecting, an online model is generated which is used for 
+navigation and for verifying the coverage of the structure. After the return of the AUV to the 
+docking station and the transfer of the data to topside, this model is used as the basis for 
+generating the high-resolution inspection model. This inspection model is linked to all the raw 
+data used to generate it (e.g.~videos) and allows the operators of the asset to do a structure-based browsing of the inspection results.
 
 \begin{figure}[!t]
 	\centering
 	\includegraphics[width=0.9\columnwidth]{FlatFish-3.jpg}
-	\caption{FlatFish attached to the crane at DFKI in Bremen. Good visible are the green 
-	lines of the laser projectors under and in front of the AUV. On the front part of the AUV the 
-	BlueView inspection sonar, the lights and the forward looking stereo camera system is 
+	\caption{FlatFish attached to the crane at DFKI in Bremen. The green 
+	lines of the laser projectors under and in front of the AUV can be seen. On the front of the AUV the 
+	BlueView inspection sonar, the lights and the forward-looking stereo camera system is 
 	visible.}
 	\label{fig:flatfishlaser}
 \end{figure}
@@ -927,45 +925,45 @@ based browsing of the inspection results.
 \section{Integration Tests}
 
 In June 2015 the integration of the first vehicle was finished in Bremen, Germany and a
-series of specification compliance tests have been done by BIR scientist together with the 
-staff at DFKI. The goal of these tests were to check whether the fully integrated AUV 
-complies to the specifications with respect to the mechatronic system and the basic motion 
+series of specification compliance tests was performed by BIR scientists together with the 
+staff at DFKI. The goal of these tests was to check whether the fully integrated AUV 
+complies with the specifications regarding the mechatronic system and the basic motion 
 capabilities. 
 
-The test were done in the large saltwater tank of the maritime exploration hall in Bremen.
+The tests were performed in the large saltwater tank of the maritime exploration hall in Bremen.
 A mock-up of a pipeline was installed as a visual target for the vehicle and the
-experiments were documented by a Mini-ROV (see figure \ref{fig:flatfish2}). 
+experiments were documented using a Mini-ROV (see figure \ref{fig:flatfish2}). 
 
-The tests consisted in a series of tracks the FlatFish had to follow while using the
-INS/DVL based dead-reckoning pose estimator and the way point following behaviour. The
-pipeline mock-up was the target for testing the downward looking camera systems and 
+The tests consisted of a series of tracks which FlatFish had to follow using the
+INS/DVL-based dead-reckoning pose estimator and the waypoint-following behaviour. The
+pipeline mock-up was the target for testing the downward-looking camera system and was 
 used as a the test object for the pipeline detector. The FlatFish AUV was able to successfully
-fulfill all the parts of the test. The way point navigation autonomously followed a set of
-way points within the tank over a time period of 30 minutes. All sensors of FlatFish
+fulfill all parts of the test. The waypoint navigation autonomously followed a set of
+waypoints in the tank over a time period of 30 minutes. All sensors of FlatFish
 worked correctly and the pipeline detector was able to detect the pipeline whenever
 FlatFish crossed it. 
 
 \section{Conclusion}
 
-The FlatFish AUV is the first step to an integrated sub-sea resident inspection system for
-offshore oil and gas. The design and testing philosophy using a multi.national team was 
-presented, the mechatronic design introduced and the navigation and the inspection 
-system outlined. 
+The FlatFish AUV is the first step towards an integrated subsea-resident inspection system for
+offshore oil and gas. The design and testing philosophy using a multinational team was 
+presented, the mechatronic design introduced and the navigation and inspection 
+systems outlined. 
 
 The specification compliance tests done at the DFKI RIC in Bremen,
 Germany showed that the mechatronic design of FlatFish is in accordance to the 
-specification. The next step within the project are extensive tests inshore of the coast of 
-Salvador with the Brasilian FlatFish. As inspection target one of the various shipwrecks in 
+specification. The next step in the project consists of extensive tests inshore off the coast of 
+Salvador with the Brazilian FlatFish. As inspection target one of the various shipwrecks in 
 the Bahian waters will be chosen, since the process to qualify FlatFish to work in an offshore 
-asset is still under work. 
+asset is still ongoing. 
 
-In parallel the design and integration of the docking station prototype will be done. The 
-tests of the docking process will primarily be done in the clear water tank in Bremen.
+In parallel, the design and integration of the docking station prototype will be done. The 
+tests of the docking process will primarily be performed in the clear saltwater tank in Bremen.
 
-Future work on FlatFish will focus on qualification of FlatFIsh for offshore asstes, enhancing 
-the inspection capabilities, doing field trials in an offshore oil and gas asset and enhancing 
+Future work on FlatFish will focus on qualification of FlatFIsh for offshore assets, enhancing 
+the inspection capabilities, performing field trials in an offshore oil and gas asset and enhancing 
 the navigation system by incorporating new methods like magnetic tracking 
-\cite{christensen2015} and increasing the autonomy. 
+\cite{christensen2015} and increasing the level of autonomy. 
 
 \begin{figure}[!t]
 	\centering
@@ -980,8 +978,8 @@ the navigation system by incorporating new methods like magnetic tracking
 \section*{Acknowledgment}
 
 The FlatFish project is part of the ongoing research and development program of BG Group
-Brasil. It is funded by the Brasilian government via the Agencia Nacional do Petroleo, Gas
-Natural e Biocombustiveis (ANP) and, due to its high innovative nature, co-funded by the
+Brazil. It is funded by the Brazilian government via the Agencia Nacional do Petroleo, Gas
+Natural e Biocombustiveis (ANP) and, due to its highly innovative nature, co-funded by the
 EMPRAPII (Empresa Brasileira de Pesquisa e Inovacao Industrial) program. 
 
 The authors would like to thank BG Group for the excellent support of the project, with
