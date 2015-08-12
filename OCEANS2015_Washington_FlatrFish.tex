@@ -440,71 +440,66 @@ extended periods of time. Within this paper the system design of FlatFish is pre
 
 \section{Introduction}
 
-Underwater structures like oil and gas production systems or the foundation of buildings,
+Underwater structures like oil and gas production systems or the foundations of buildings,
 piers and off-shore wind facilities, have to be regularly inspected to evaluate the state
 of the structure and to plan future interventions for repair and maintenance. These
-inspections are currently done by remotely operated vehicles (ROVs) or, if water depth and
-availability allows it, by divers. Due to the fact that Inspections of this kind need a
+inspections are currently performed by remotely operated vehicles (ROVs) or, if water depth and
+availability allow it, by divers. Due to the fact that inspections of this kind require a
 special support vessel, they are time-consuming, expensive, need to be planned a long time
-in advance and rely on good weather conditions and seasonal constraints (e.g.~not during
+in advance and rely on good weather conditions and seasonal constraints (e.g. not during
 hurricane season or winter storms).
 
-Especially when looking at the sub-sea operations of the oil and gas industry, being able
-to inspect the sub-sea part of an asset regularly and/or on demand plays a key role for
-sub-sea asset integrity assurance (SIA) and integrity management. The key informations
-needed from of the inspections are the general structural integrity and close visual data
-(also known as close visual inspection CVI). The former can be acquired by using sonars
-from a greater distance for the latter a camera has to be brought close to the structure.
-The capability to get information of the current state of any sub-sea equipment within the
+Especially when looking at subsea operations of the oil and gas industry, being able
+to inspect the subsea part of an asset regularly and/or on demand plays a key role for
+subsea asset integrity assurance (SIA) and integrity management. The key information gathered from inspections encompasses the general structural integrity and close visual data
+(also known as close visual inspection, CVI). The former can be acquired by using sonars
+from a greater distance. For the latter, a camera has to be brought close to the structure.
+Being able to retrieve information on the current state of any subsea equipment within the
 field whenever the need for an assessment arises, allows for much safer operations and a
 reduction of the operational expenditures (OPEX) due to the ability to better plan asset
-maintenance. While this holds already true for current offshore assets, it becomes crucial
-for the planned deep sea assets or in future fields with more complex sea floor production
+maintenance. While this already holds true for current offshore assets, it becomes crucial
+for the planned deep sea assets or in future fields with more complex seafloor production
 systems.
 
-These kind of inspection are logistically and financially not possible to execute with
-ROVs since that would require the continuous presence of a ROV support vessel in the
-field. There are a few rare installation with ROVs deployed by FPSOs, but the limitation
-of the tether length limits these operational radius in an area around the FPSO. The
+These kinds of inspections are logistically and financially not feasible with
+ROVs since that would require the continuous presence of an ROV support vessel in the
+field. There are very few installations with ROVs deployed from FPSOs, but the tether length 
+limits the operational radius to an area around the FPSO. The
 solution is the usage of autonomous underwater vehicles (AUVs) for in-field inspection.
-Already \cite{gamechanger07} predicted the increase of AUV capabilities and their usage in
-tasks beyond the classic bathymetry.
+\cite{gamechanger07} already predicted the increase of AUV capabilities and their use in
+tasks beyond classic bathymetry.
 
-AUV systems capable of delivering the desired inspection data need enhanced capabilities.
-The robot must be able to bring its cameras and lights close to the inspection target
-without damaging the structure. This requires a ROV like maneuverability combined with an
-control systems maintaining safe operations. This hovering ability is one of the key
-capabilities which is commonly used to distinguish the bathymetry class AUVs from the
-inspection class AUVs.
+AUV systems suitable for delivering the desired inspection data require enhanced capabilities.
+The robot must be able to position its cameras and lights close to the inspection target
+without damaging the structure. This requires an ROV-like maneuverability combined with a
+control system maintaining safe operations. This hovering ability is one of the key
+capabilities which is commonly used to distinguish bathymetry-class AUVs from 
+inspection-class AUVs.
 
-To guarantee that at any given time a inspection of the assets sub-sea structures can be
-done, the AUV has to be readily available 24/7. Since deck space on platforms and FPSO is
+To guarantee that at any given time an inspection of the asset's subsea structures can be
+performed, the AUV has to be readily available 24/7. Since deck space on platforms and FPSOs is
 generally tight and to reduce the influence of the weather on operations, the solution is
-to operate the AUV \textit{sub-sea resident}. Sub sea resident within the AUV context
-means, that the robot has a dedicated docking station on the sea floor within the asset.
-This docking station is connected to the top side facilities of the asset. While in the
-docking station the AUV can be charged and data can be downloaded from the AUV and 
-mission
-information can be uploaded to the AUV. When an inspection is required the mission is
-created on shore or top side and transmitted to the AUV. The AUV then leaves the docking
+to operate the AUV in a \textit{subsea-resident} mode. Within the AUV context, subsea-residency means that the robot has a dedicated docking station on the seafloor within the asset.
+This docking station is connected to the topside facilities of the asset. While docked, the AUV can be charged, data can be downloaded from the AUV and mission
+information can be uploaded to the AUV. When an inspection is required, the mission is
+created on shore or topside and transmitted to the AUV. The AUV then leaves the docking
 station, executes the mission and returns to the docking station to recharge the batteries
 and transfer the inspection data.
 
-Sub sea residence is not a new concept. The idea is being passed around in research and
-development already for some time (e.g.~\cite{mcleod2011}). But until now the technology
-for actually implementing a sub-sea resident vehicle has not been available. Sub sea
-residency originally came out of the oceanographic research, where its intend was to
-expand the ranges of long-term environmental monitoring. World wide there are a couple of
-projects going on which have the usage of resident AUVs in the mid- to long-term plan,
-e.g.~\cite{german2012} or \cite{soltwedel2013}.
+Subsea-residency is not a new concept. The idea has already been appearing in research and
+development for some time (e.g.~\cite{mcleod2011}). But until now the technology
+for actually implementing a subsea-resident vehicle was not available. Subsea-residency originated 
+from oceanographic research, where its intended use was to
+expand the ranges of long-term environmental monitoring. Worldwide there are a few
+projects ongoing which plan to use resident AUVs in the mid- to long-term, e.g.~\cite{german2012} or \cite{soltwedel2013}.
 
-The requirements for a sub-sea resident AUV and its supporting infrastructure are high.
+The requirements for a subsea-resident AUV and its support infrastructure are high.
 All components have to be robust enough to be able to function even when being exposed 
 to
-the deep sea environment for a longer time. This includes for example corrosion,
-bio-fouling, degradation of seals and the blockage of moving parts like thruster and
-locking mechanisms by sand or other dirt. The AUV as well as the infrastructure has to be
-designed in a way which on one hand addresses aforementioned problems and on the other
+the deep sea environment for extended periods. This includes corrosion,
+bio-fouling, degradation of seals and the blockage of moving parts like thrusters and
+locking mechanisms by sediments or other foreign objects. The AUV as well as the infrastructure have to be
+designed in a way that on one hand addresses the aforementioned problems and on the other
 hand allows for quick and cost efficient maintenance.
 
 \subsection{Project FlatFish}
