@@ -505,51 +505,48 @@ hand allows for quick and cost efficient maintenance.
 \subsection{Project FlatFish}
 
 The FlatFish project is an initiative between BG Group Brazil and the Brazilian Institute
-for Robotics (BIR) in Salvador and is funded through the Brazilian Government R\&D levy,
-which requires that 1\% of gross production revenue from large Brazilian oil and gas
+of Robotics (BIR) in Salvador and is funded through the Brazilian Government R\&D levy,
+which requires 1\% of gross production revenue from large Brazilian oil and gas
 fields to be invested in R\&D in Brazil.
 
-FaltFish aims at the development of a sub-sea resident inspection AUV. The project is part
-of a long-term research road-map of BG Group Brazil in the area of robotic for oil and gas
-production. The development of the AUV is devided in two phases: In the first phase the
-development infrastructure in Brazil will be developed, the AUV will be designed and
-integrated, and the first inspection tests will be conducted inshore of the coast of
-Salvador, Brazil and in the maritime test tank at DFKI in Bremen, Germany, the second
-phase will concentrate on extended offshore trials of the complete system, including the
+FlatFish aims to develop a subsea-resident inspection AUV. The project is part
+of a long-term research roadmap of BG Group Brazil in the area of robotics for oil and gas
+production. The development of the AUV is divided into two phases: In the first phase the
+development infrastructure in Brazil will be set up, the AUV will be designed and
+integrated, and the first inspection tests will be conducted inshore off the coast of
+Salvador, Brazil and in the maritime test tank at DFKI in Bremen, Germany. The second
+phase will focus on extended offshore trials of the complete system, including the
 docking station, within an asset of BG Group. Currently the project is at the end of the
 first phase.
 
-During a workshop between BG Group, BIR and DFKI at the begin of the FlatFish project the
-scenario and the principal design parameters were defined. The scenario was defines as the
-following:
+During a workshop between BG Group, BIR and DFKI at the beginning of the FlatFish project, the
+scenario and the principal design parameters were defined. The scenario was defined as follows:
 
 \begin{enumerate}
-    \item The AUV resides with in a docking station on the sea floor
-    \item Top side sends a mission to inspect a specific structure within the asset,
-        e.g.~a mainfold or a SSIV
-    \item FlatFish leaves the docking station, and flies to the specified structure using
-        pipelines and other sub-sea structures as external references
-    \item While in transit FlatFish uses its on-board sensors to record data of the assets
-        status (e.g.~pipelines or debris) and to avoid obstacles
-    \item At the inspection target FlatFish uses an advanced camera system to do a close
+    \item The AUV resides within a docking station on the seafloor
+    \item Topside sends a mission to inspect a specific structure within the asset,
+        e.g.~a mainfold or an SSIV
+    \item FlatFish leaves the docking station and navigates toward the specified structure using
+        pipelines and other subsea structures as external references
+    \item While in transit, FlatFish uses its onboard sensors to avoid obstacles and to record data of the asset's status (e.g.~pipelines or debris)
+    \item At the inspection target, FlatFish uses an advanced camera system to perform a close
         visual inspection of the complete structure
-    \item FlatFish returns to the docking station using the same navigation system as
-        going to the structure
-    \item In the docking station the batteries are recharged, the data downloaded to
-        top-side and a high resolution video linked 3D model is created as inspection
+    \item FlatFish returns to the docking station using the same navigation approach as before
+    \item In the docking station the batteries are recharged, the data is downloaded to
+        a topside server and a high-resolution video-linked 3D model is created as the inspection
         result.
 \end{enumerate}
 
-With this in mind the basic requirements for the FlatFish AUV were set to the following:
+With this in mind, the basic requirements for the FlatFish AUV were set to the following:
 
 \begin{itemize}
     \item Compact design with hovering capabilities
-    \item Materials and mechanical design that allow for a long term sub-sea deployment
-    \item Extended sensor suite including for highly detailed visual inspection.
-    \item Multi-modal navigation system tailored to use the assets structure as landmarks
-    \item Multiple tracking systems e.g. pipeline tracking, cable tracking, structure
+    \item Materials and mechanical design that allow for a long-term subsea deployment
+    \item Extended sensor suite for highly detailed visual inspection
+    \item Multi-modal navigation system tailored to use the asset's structure as landmarks
+    \item Multiple tracking systems, e.g. pipeline tracking, cable tracking, structure
         tracking
-    \item On-line 3D reconstruction for adaptive inspection coverage and off-line dense 3D
+    \item Online 3D reconstruction for adaptive inspection coverage and offline dense 3D
         reconstruction with referencing between video data and 3D model
 \end{itemize}
 
