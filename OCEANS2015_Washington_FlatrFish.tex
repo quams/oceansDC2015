@@ -349,7 +349,7 @@
 
 
 \begin{document}
-\title{FlatFish -- A compact subsea-resident inspection AUV}
+\title{FlatFish -- A compact subsea-resident\\ inspection AUV}
 
 \author{
     \IEEEauthorblockN{Jan Albiez\IEEEauthorrefmark{1}\IEEEauthorrefmark{2}, 
@@ -715,13 +715,6 @@ major fault or be rebooted for fault recovery. Since the system management regul
 access to the thrusters and can be contacted via every communication channel, the AUV 
 can be forced to surface even when the main control software is malfunctioning. Also, FlatFish can be directly controlled at the surface via WiFi or XBee.
 
-\paragraph{\textbf{Computer System}} FlatFish is equipped with two computers. 
-One is the dedicated control PC which runs the low-level control, the navigation system 
-and the mission management. The second PC is the payload system, and therefore is the 
-host of the inspection software. The PCs are connected via Gigabit Ethernet which also acts 
-as the main communication backbone.
-
-Figure~\ref{fig:flatfish1} shows the fully integrated system at the DFKI facilities in Bremen.
 \begin{figure}[!t]
 	\centering
 	\includegraphics[width=0.9\columnwidth]{FlatFish-1.jpg}
@@ -730,6 +723,13 @@ Figure~\ref{fig:flatfish1} shows the fully integrated system at the DFKI facilit
 	\label{fig:flatfish1}
 \end{figure}
 
+\paragraph{\textbf{Computer System}} FlatFish is equipped with two computers. 
+One is the dedicated control PC which runs the low-level control, the navigation system 
+and the mission management. The second PC is the payload system, and therefore is the 
+host of the inspection software. The PCs are connected via Gigabit Ethernet which also acts 
+as the main communication backbone.
+
+Figure~\ref{fig:flatfish1} shows the fully integrated system at the DFKI facilities in Bremen.
 
 \subsection{Software Architecture}
 
@@ -743,6 +743,13 @@ From the point of view of vehicle development, Rock provides the common set of t
 and services that is nowadays considered standard: visualization, logging (storing data), 
 log replay (passing logged data to live components for testing) and state monitoring.
 Where Rock differentiates itself is in its focus on robustness.
+
+\begin{figure}[!t]
+	\centering
+	\includegraphics[width=0.9\columnwidth]{sw_arch_overview}
+	\caption{High-level view of the FlatFish control architecture}
+	\label{fig:sw_arch}
+\end{figure}
 
 Rock's architecture design supports the integration and \emph{coordination} of software
 components that have a single purpose~\cite{Joyeux2013}, that is have a well-defined 
@@ -774,13 +781,6 @@ low autonomy. Its goal is to verify properties that are critical to the underwat
 integrity as well as the vehicle safety (the former having higher priority than the
 latter). It can take over vehicle control to enter a safe mode when needed,
 completely bypassing Syskit's own functions.
-
-\begin{figure}[!t]
-	\centering
-	\includegraphics[width=0.9\columnwidth]{sw_arch_overview}
-	\caption{High-level view of the FlatFish control architecture}
-	\label{fig:sw_arch}
-\end{figure}
 
 \subsection{Simulation}
 
