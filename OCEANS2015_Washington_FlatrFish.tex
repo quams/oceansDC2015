@@ -736,21 +736,21 @@ Figure~\ref{fig:flatfish1} shows the fully integrated system at the DFKI facilit
 The vehicle's software architecture is based on the Robot Construction Kit
 (Rock\footnote{http://rock-robotics.org/}), a component-based software integration
 framework for robotics. The work done to use Rock on FlatFish is a continuation of
-previous work, to which some of the authors participated, on other AUVs~\cite{albiez2010}
+previous work, to which some of the authors contributed, on other AUVs~\cite{albiez2010}
 and H-ROVs~\cite{meinecke2013}.
 
-From the point of view of the vehicle development, Rock provides the common type of tools
-and services that is nowadays considered standard: visualization, logging (saving data)
-and log replay (passing logged data to live components for testing) and state monitoring.
+From the point of view of vehicle development, Rock provides the common set of tools
+and services that is nowadays considered standard: visualization, logging (storing data), 
+log replay (passing logged data to live components for testing) and state monitoring.
 Where Rock differentiates itself is in its focus on robustness.
 
 Rock's architecture design supports the integration and \emph{coordination} of software
 components that have a single purpose~\cite{Joyeux2013}, that is have a well-defined 
 function that is as
-stateless as possible. This is in contrast with the common approach of ``fat components'',
-whose behaviour very commonly depends on a lot of internal state, and is therefore hard to
+stateless as possible. This contrasts with the common approach of ``fat components'',
+whose behaviour very often depends on a lot of internal states, and is therefore hard to
 assess externally. The components in the FlatFish architecture are meant to be designed
-for a single purpose, which makes external diagnostic easier, and allow to make them
+for a single purpose, which makes external diagnostic easier, and allows to make them
 \emph{fail early}. The handling of these faults is then delegated to the system's
 coordination layer, Syskit\cite{Joyeux2011}.
 
@@ -765,16 +765,15 @@ systems
 off when needed by the \emph{Plan Manager}, while leaving the details of which parts of
 the software should be shut down or brought up to the model-based approach. This allows 
 to
-very easily provide hybrid ROV/AUV functionality, where any AUV functionality is available
-to a ROV operator to enable or disable when needed, including fully autonomous mission
+very easily provide hybrid ROV/AUV functionality, where any AUV functionality can be enabled or disabled by a ROV operator when needed, including fully autonomous mission
 modes.
 
 Given Syskit's complexity, the software architecture includes \emph{Vehicle Management
 and Safety} functionality. This functionality, separated from the Syskit-based blocks, has
 low autonomy. Its goal is to verify properties that are critical to the underwater asset's
 integrity as well as the vehicle safety (the former having higher priority than the
-latter). It can take over the vehicle's control to enter a safe mode when needed,
-bypassing completely Syskit's own functions.
+latter). It can take over vehicle control to enter a safe mode when needed,
+completely bypassing Syskit's own functions.
 
 \begin{figure}[!t]
 	\centering
@@ -785,11 +784,11 @@ bypassing completely Syskit's own functions.
 
 \subsection{Simulation}
 
-In order to test the software integration, and the mission and fault handling behaviours,
-we have integrated the Gazebo realtime simulator~\footnote{http://gazebosim.org}.
+In order to test the software integration and the mission and fault handling behaviours,
+we have integrated the Gazebo realtime simulator~\footnote{http://gazebosim.org} into Rock.
 
-Out of the box, Gazeo did not provide all the functionality required for the FlatFish,
-namely the following was missing
+Out of the box, Gazebo does not provide all the functionality required for FlatFish,
+namely the following missing components:
 \begin{itemize}
     \item water effect simulation for cameras, in particular the loss of color and the
         limited depth of view,
@@ -798,9 +797,9 @@ namely the following was missing
     \item the Rock integration
 \end{itemize}
 
-Our work consisted first in a clean integration of Gazebo in the Rock framework, and
-second its extension to support the simulation of an underwater environment. Technical
-details about this integration can be found here~\cite{watanabe2015}.
+Our work consists firstly of a clean integration of Gazebo into the Rock framework, and
+secondly its extension to support the simulation of an underwater environment. Technical
+details about this integration can be found in~\cite{watanabe2015}.
 
 \begin{figure}[!t]
 	\centering
@@ -814,63 +813,60 @@ details about this integration can be found here~\cite{watanabe2015}.
 \subsection{Navigation System}
 \label{sec:nav}
 
-One of the biggest problems for AUVs is a precise localization while en route. Contrary to 
-ROVs an AUV normally has no base vessel which can localize it acoustically. An AUV solely 
+One of the largest problems for AUVs is a precise localization while en-route. Contrary to 
+ROVs, an AUV normally has no base vessel which can localize it acoustically. An AUV solely 
 has to rely on its INS and the DVL used with dead-reckoning to compute the current 
-position and therefore accumulates and error over time. This error is getting even bigger the 
-more the AUV turns, a typical occurrence when doing an inspection. On some AUV missions 
+position and therefore accumulates an error over time. This error grows larger the 
+more the AUV turns, a typical motion when performing an inspection. During some AUV missions 
 a large baseline (LBL) transponder net is deployed to correct for errors 
-(e.g.~\cite{purcell2011}) but setting up a LBL network is a huge logistical effort.
+(e.g.~\cite{purcell2011}), but setting up a LBL network is a major logistical effort.
 
-The navigation system of FlatFish makes use of the installation and infrastructure within an 
-offshore asset to guarantee, that it safely reaches an inspection target, even if this target is 
-located a long distance away from the docking station. Since every part of the asset is 
-somehow at the end connected to the platform or the FPSO, FlatFish uses these 
+The navigation system of FlatFish makes use of the installations and infrastructure within an 
+offshore asset to guarantee safely reaching an inspection target, even if this target is 
+located a long distance away from the docking station. Since every part of the asset is in some way connected to the platform or the FPSO, FlatFish uses these 
 connections, normally pipelines or umbilicals, as navigation aids. Instead of an absolute 
-global localization FlatFish uses pipelines and umbilicals like roads connecting the individual 
-parts of the asset. FlatFish metaphorically carries a map of the asset with it and uses this 
-map for navigation. This layout supported navigation uses several modalities which are 
-fusioned whenever they are applicable (see also figure \ref{fig:nav_overview}):
-\paragraph*{\textbf{INS/DVL}} The fusion of the KVH, the DVL and the vehicles motion 
-model into  a dead-reckoning system by using an Extended Kalman Filter (EKF).
-\paragraph*{\textbf{USBL}} Within a 1km range of the docking station the USBL/modem is 
-used to help the FlatFish finding its docking station. Current plans only have the docking 
-station equipped with an USBL, but it is also thinkable, that other parts of the asset like 
-manifolds have a USBL repeater installed to further aid navigation.
+global localization, FlatFish uses pipelines and umbilicals like roads connecting the individual 
+parts of the asset. FlatFish metaphorically carries a map of the asset and uses it for navigation. This layout-aided navigation uses several modalities which are 
+fused whenever they are applicable (see also figure \ref{fig:nav_overview}):
+\paragraph*{\textbf{INS/DVL}} The fusion of the INS, the DVL and the vehicle's motion 
+model into  a dead-reckoning system by using an Extended Kalman Filter (EKF)
+\paragraph*{\textbf{USBL}} Within a 1km range from the docking station, the USBL/modem is 
+used to help FlatFish find its dock. Current plans only have the docking 
+station equipped with an USBL, but it is also possible to equip other parts of the asset (like 
+manifolds) with a USBL repeater to further aid navigation.
 \paragraph*{\textbf{Pipelines \& Umbilicals}} FlatFish possesses an advanced 
-opto-acustical pipeline and cable tracker. Using this tracking system, FlatFish can for 
-example \textit{lock} onto the pipeline connecting its current inspection target with the rest 
-of the asset and safely find it, even if the target is multiple kilometers away from the docking 
+opto-acoustic pipeline and cable tracker. Using this tracking system, FlatFish can \textit{lock} onto the pipeline connecting its current inspection target with the rest 
+of the asset and safely find it, even if the target is several kilometers away from the docking 
 station. A further benefit of this tracking is, that a general visual inspection of the pipelines 
-within the asset is done automatically,
-\paragraph*{\textbf{Acoustical Feature Detection}} It is planned to use the forward looking 
-imaging sonar (Gemini) to support the transition between the junction at the end of the 
-pipelines/umbilicals and the current goal of the navigation.
+within the asset is done automatically.
+\paragraph*{\textbf{Acoustic Feature Detection}} It is planned to use the forward-looking 
+imaging sonar (Tritech Gemini 720i) to support the transition between the junction at the end of the 
+pipelines/umbilicals and the current target of the navigation.
 \paragraph*{\textbf{3D reconstruction/inspection}} The main part of the inspection data 
 processing is done offline (see section \ref{sec:insp}), but the coverage check is done by an 
 online algorithm. This part of the inspection system is used to localize the AUV with respect 
-to the inspection target. This part is especially important, since it is expected that the DVL 
-will produce errors due to the close proximity to the structure thus leaving the 
+to the inspection target. This is of special importance since it is expected that the DVL 
+will produce errors due to the close proximity to the structure, thus leaving the 
 dead-reckoning in a critical state.
 
 \begin{figure}[!t]
 \begin{center}
-	\subfloat[During transitions the INS/DVL based localisation is supported by tracking of 
+	\subfloat[During transitions the INS/DVL-based localization is supported by tracking of 
 	asset strucutres like flowlines 
 	]{\includegraphics[width=\columnwidth]{FF-NavigationOverview-1}}\\
-	\subfloat[Closer (less than 100 m) to major asset structures the forward looking imaging 
-	sonar and the obstacle avoidance sonar is used to localise the 
+	\subfloat[Closer (less than 100 m) to major asset structures the forward-looking imaging 
+	sonar and the obstacle avoidance sonar are used to localize the 
 	structure]{\includegraphics[width=\columnwidth]{FF-NavigationOverview-2}}\\
 	\subfloat[During inspection the 3D reconstruction data (visual and sonar) is used to track 
-	its relative position to the structure 
+	the AUV's relative position with respect to the structure 
 	]{\includegraphics[width=\columnwidth]{FF-NavigationOverview-3}}\\
-\caption{Overview of the three major navigation modalities for the layout-supported 
+\caption{Overview of the three major navigation modalities for the layout-aided 
 navigation of FlatFish }
 \label{fig:nav_overview}
 \end{center}
 \end{figure}
 
-The fusion of all this modalities into the final localization solution will be done by an EKF.
+The fusion of all these modalities into the final localization solution will be done by an EKF.
 
 \subsection{Inspection System}
 \label{sec:insp}
