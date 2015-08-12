@@ -550,8 +550,7 @@ With this in mind, the basic requirements for the FlatFish AUV were set to the f
         reconstruction with referencing between video data and 3D model
 \end{itemize}
 
-This paper focuses on the FlatFish AUV. The developments within the project are set into
-the current state of the art on inspection class AUVs and the design of the AUV is
+This paper focuses on the FlatFish AUV. The developments within the project are shown in regard to the current state-of-the-art for inspection-class AUVs and the design of the AUV is
 presented.
 
 %%%%%%% here because of layout reasons
@@ -562,149 +561,143 @@ presented.
 		\subfloat[bottom view]{\includegraphics[width=0.5\textwidth]{flatfish_unten}}
 		\hfil
 		\subfloat[top view]{\includegraphics[width=0.5\textwidth]{flatfish_oben}}
-		\caption{Overview of the principal placement of the FlatFishs components (sensors, 
-		thrusters etc.)}
+		\caption{Placement of FlatFish's components (sensors, thrusters etc.)}
 		\label{fig:sensor_placement}
 	\end{center}
 \end{figure*}
 %%%%%%%
 
-\section{Inspection Class AUVs}
+\section{Inspection-Class AUVs}
 
-The primary tasks for autonomous underwater vehicles has always been data collection.
-Initially AUVs were designed to enhance the quality of sonar based wide area surveys by
-operating closer to the ground and without the influence of waves. Up to this day
+The primary task for autonomous underwater vehicles has always been data collection.
+Initially, AUVs were designed to enhance the quality of sonar-based wide area surveys by
+operating closer to the ground than a surface vessel and without the influence of waves. Up to this day
 facilitating high-resolution bathymetric maps is still the primary application for AUVs.
 Other wide area operations are the search for objects such as flight recorders (see
-\cite{purcell2011}) or mine hunting (see \cite{Couillard2012}). AUVs designed to do these
-kind of tasks commonly only use one propeller and control planes and therefore lack the
-ability to \textit{hover}, meaning that they can't stay in one place like ROVs. The
-ability to hover is a key requirement to do inspection tasks on complex structures.
-Therefore this ability distinguishes inspection class AUVs from mapping systems.
+\cite{purcell2011}) or mine hunting (see \cite{Couillard2012}). AUVs designed to perform this
+kind of tasks commonly use one propeller and control planes and therefore lack the
+ability to \textit{hover}, meaning that they can't keep their position like ROVs. The
+ability to hover is a key requirement to perform inspection tasks on complex structures.
+Therefore this ability distinguishes inspection-class AUVs from mapping systems.
 
-In recent years several AUV manufactures designed prototypical modifications of their
-mapping AUVs to do inspection tasks, e.g.~the modified REMUS 500 presented in
-\cite{packard2010}. All of this modifications have in common, that hovering is relatively
-expensive energy wise, so inspections which mainly rely on ROV like motions are not
+In recent years several AUV manufacturers developed prototypical modifications to their
+mapping AUVs to perform inspection tasks, e.g.~the modified REMUS 500 presented in
+\cite{packard2010}. All of these modifications have in common that hovering is relatively
+expensive regarding energy consumption, so inspections which mainly rely on ROV-like motions are not
 feasible with these systems.
 
-SubSea 7s autonomous inspection vehicle (AIV) \cite{AIV} comes close to the requirements
-defined for the FlatFish project. Nevertheless the AIV mainly operates sonar based and
-keeps longer distance to the inspection target and additionally lacks the required
-high resolution video system.
+SubSea 7's autonomous inspection vehicle (AIV) \cite{AIV} comes close to the requirements
+defined for the FlatFish project. Nevertheless, the AIV mainly operates based on sonar, keeps longer distances to the inspection target and lacks the required high-resolution video system.
 
-Lockheed Martins Marlin \cite{Marlinmk1} is a huge AUV primarily designed for carrying a
-bulky 3D imaging sonar. It has been used to do optical surveys as well (see
-\cite{mcleod2013}) but with mixed results. There has been some tries to use the Saab
-Seaeye Sabertooth \cite{johansson2010} as inspection class AUV, but up it suffers from the
-same size problems as the Marlin. 
+Lockheed Martin's Marlin \cite{Marlinmk1} is a large AUV primarily designed to carry a
+bulky 3D imaging sonar. It has been used to perform optical surveys as well (see
+\cite{mcleod2013}) but with mixed results. There have been some attempts to use the Saab
+Seaeye Sabertooth \cite{johansson2010} as an inspection-class AUV, but it suffers from the
+same size-related problems as the Marlin. 
 
 There are several prototypes and single systems used in robotic or marine research.
 Examples are the Italian TriMares \cite{cruz2011} used to evaluate dam inspection by AUVs,
 the Spanish Girona 500 vehicle \cite{ribas2012} used in different European projects and
 the Sentry AUV of the Woods Hole Oceanographic Institution in the USA, best known for its
-work during the Deepwater Horizon accident \cite{Kinsey2011}. All these system have in
-common, that they are unique solutions with special research interests.
+work during the Deepwater Horizon accident \cite{Kinsey2011}. All these systems have in
+common that they are unique solutions with special research interests.
 
-A special case currently being under development are so called \textit{hybrid} ROVs, which
-basically are hovering AUVs which are remotely controlled via a thin optical fiber during
+A special case currently under development are so-called \textit{hybrid} ROVs, which
+are hovering AUVs that are remotely controlled via a thin optical fiber during
 the inspection/scientific part of their mission. The first known vehicle of this kind was
-the deep diving NEREUS \cite{bowen2009}. An example for a resent system is the HROV
+the deep-diving NEREUS \cite{bowen2009}. An example for a recent system is the HROV
 \cite{meinecke2011} of the German MARUM.
 
-The work in FlatFish is based on the long experience of the DFKI RIC on the design of
-inspection AUVs. It mainly builds upon the operational experience made with DAGON
+The development in FlatFish is based on the work of the DFKI RIC on the design of
+inspection AUVs. It mainly builds upon the operational experience with DAGON
 \cite{hildebrandt2012} and on the mechatronic system of LENG \cite{hildebrandt2013}.
 
-\section{Brasilian-German Development}
+\section{Brazilian-German Development}
 
 FlatFish is developed in a joint effort between the Robotics Innovation Center (RIC) of
-DFKI in Bremen, Germany and the Brazilian Institute for Robotics (BIR) in Salvador,
-Brazil. This co-operation opens the unique opportunity to combine the indoor testing
-facilities and the experience on autonomous underwater robots in Bremen with the 
-extended testing opportunities and the emerging commercial and scientific market in Brazil.
+DFKI in Bremen, Germany and the Brazilian Institute of Robotics (BIR) in Salvador,
+Brazil. This cooperation creates the unique opportunity to combine the indoor testing
+facilities and the experience with autonomous underwater robots in Bremen and the 
+extensive testing opportunities and the emerging commercial and scientific market in Brazil.
 
-The key elements of this co-operation within the project are the testing facilities which
+The key elements of this cooperation within the project are the testing facilities which
 complement each other, the joint development of hardware and software and the training of
-researchers and personnel.
+researchers and other personnel.
 
-The center of the maritime exploration
+The centerpiece of the maritime exploration
 hall\footnote{http://robotik.dfki-bremen.de/en/research/research-facilities/maritime-exploration-hall.html}
-at the facilities of DFKI RIC in Bremen is a 3.5 million liter salt water test tank. This
+at the facilities of DFKI RIC in Bremen is a 3.5 million liter saltwater test tank. This
 tank allows for comprehensive tests of systems and control algorithms in a completely
-controlled and safe environment. It is big enough for FlatFish to operate freely.
+controlled and safe environment. It is large enough for FlatFish to operate freely.
 
-The coastal waters around Salvador have an average depth of approximately 30m and offer
+The coastal waters around Salvador have an average depth of approximately 30m and offer a
 variety of different testing environments, close to offshore conditions with respect to
-visibility and currents. The weather  allows for a nearly year around testing with only a
+visibility and currents. The weather allows for nearly year-round testing with only a
 short time in autumn (May to mid July) where high waves and thunderstorms can limit the
 ability to test. 
 
 Both locations will have their own FlatFish AUV. The first is being built in Bremen, the
-second will be integrated in Salvador. Having two vehicle allows a seamless test,
-evaluation and improvement of algorithms, hardware and operational procedures. For 
-example
-can a new algorithm for sensor processing be tested in the clear water environment at
-Bremen and its principal functionality can be verified before it is tested in the ocean
+second will be integrated in Salvador. Having two identical vehicles allows a seamless test,
+evaluation and improvement of algorithms, hardware and operational procedures. E.g., a new algorithm for sensor processing can be tested in the clear water environment at the Bremen site and its principal functionality can be verified before it is tested in the ocean
 environment in Salvador. The results of the tests in Salvador can then be analyzed at both
 locations, any problems can be identified and the testing cycle can start again. With both
-location typed working in parallel this cycle can be very quick and efficient.
+locations working in parallel this cycle can be very quick and efficient.
 
-Working in a trans-continental co-operation forced the team to establish modern methods of
+Working in a transcontinental cooperation forced the team to establish modern methods of
 distributed development, change management, issue tracking, document management and
-communication. The primary tool for co-ordinating the development work is
+communication. The primary tool for coordinating the development work is
 github\footnote{https://github.com/} which already brings all the tools needed to manage a
-distribute team of software developers. Additional to github a built server is used to
+distributed team of software developers. In addition to github a build-server is used to
 verify the current state of the software integration and
 runrun.it\footnote{https://runrun.it/} is used to manage the tasks of the team members and
-co-ordinate the work between them. 
+to coordinate the work between them. 
 
 \section{The FlatFish AUV}
 
 \subsection{Mechatronic Design}
 
-The main goal fo the FlatFish design was to integrate all the necessary sensors, the 
-thrusters, the battery systems and the electronics in a compact system. Early in the design 
-phase the decision was made to use an open frame design since it allows more freedom in 
+The main goal of the FlatFish design was integrating all necessary sensors, the 
+thrusters, the battery system and the electronics into a compact system. Early in the design 
+phase the decision was made to use an open-frame design since it allows more freedom in 
 placing components and sensors. Figure~\ref{fig:sensor_placement} shows the CAD model 
 of the AUV without the cover to illustrate the placement of the components. The inspection 
 sensors are described in section~\ref{sec:insp}, the navigation system is the topic of 
-section~\ref{sec:nav}, all other components are described in more detail in the following.
+section~\ref{sec:nav}, all other components are described in more detail now.
 
-\paragraph{\textbf{Frame, Support and Cover}} The frame is made out of a titanium-sheet 
-buoyancy-foam composite and the launch and recovery hook support is welded titanium. 
-This design allows for a very lightweight but still robust structure. The cover is made out of 
+\paragraph{\textbf{Frame, Support and Cover}} The frame features a titanium sheet
+buoyancy foam composite and the launch and recovery hook support consists of welded titanium. 
+This design allows for a very lightweight but still robust structure. The cover is made from 
 fiberglass and its primary function is to reduce the potential points of entanglement while its 
-secondary function is to reduce the hydrodynamic resistance.
+secondary function is to reduce the hydrodynamic drag.
 
-\paragraph{\textbf{Pressure Housings}} An analysis of the volume used by the electronics 
+\paragraph{\textbf{Pressure Housings}} An analysis of the volume occupied by the electronics 
 and the batteries showed that distributing the dry electronics into multiple smaller titanium 
-pressure housings would reduce the size and weight of the housings themselves. For 
-reasons of modularity and weight distribution within the system, the batteries got two 
-pressure housings for themselves and the PC systems, power electronics etc.~was 
-distributed in two housings. The lids of the pressure housings are easy accessible from the 
-side of the vehicle which facilitates maintenance.
+pressure housings would reduce the size and weight of the housings. For 
+reasons of modularity and weight distribution within the system, the batteries are placed in two 
+pressure housings while the PCs, power electronics etc.~are 
+distributed in two separate housings. The caps of the pressure housings are easy accessible from the 
+side of the vehicle, thus facilitating maintenance.
 
-\paragraph{\textbf{Propulsion System}} FlatFish is moved by six hub-less, pressure neutral 
-ring thrusters. These kind of thrusters are very robust with respect to time spend in water 
-and are able to withstand most kinds of debris without being blocked. The thrusters are 
-configured in a rectangular configuration with two acting in each of the primary directions 
-surge, heave and sway. This configuration is less agile than the ROV type vector thrust but 
-much more efficient since all thrust is given into the desired direction of motion.
+\paragraph{\textbf{Propulsion System}} FlatFish is propelled by six hubless, pressure neutral 
+ring thrusters. This type of thrusters is very robust with respect to extended underwater use 
+and is able to withstand most kinds of debris without being blocked. The thrusters are 
+configured in a rectangular configuration with two for each of the primary directions 
+surge, heave and sway. This configuration is less agile than the ROV-type vectored thrust but 
+much more efficient since full thrust is given in the desired direction of motion.
 
 \paragraph{\textbf{Communication System}} FlatFish is equipped with a wide range of 
 communication channels. All surface communication systems are gathered in a 
-communications tower (com-tower) at the back of the system which rises significant above 
-the water when FlatFIsh is surfaced. The com-tower is equipped with an Irdium satellite 
-modem for world wide communication, a GPS receiver, a 2.4GHz wireless LAN access point, 
-an XBee pro modem for redundancy and safety and a high-power LED beacon. For 
-communication when submerged  FlatFish is equipped with an acoustic modem. The tower 
-can be configured to automatically transmit its position via Iridium when it has satellite 
-contact and it is equipped with its own battery.
+communications tower at the rear of the AUV which rises out of 
+the water when FlatFish is surfaced. The comms tower is equipped with an Iridium satellite 
+modem for worldwide communication, a GPS receiver, a 2.4GHz wireless LAN access point, 
+an XBee Pro modem for redundancy and safety and a high-power LED beacon. For 
+communication when submerged FlatFish is equipped with an acoustic modem. The comms tower 
+can be configured to automatically transmit its GPS position via Iridium when it has satellite 
+contact and it is equipped with its own backup battery.
 
 It is possible to equip FlatFish with a short (100m) copper tether or a long fibre-optic cable 
-turning it into an hybrid ROV. While this feature is not needed in the final application 
-scenario it is a great advantage during development.
+turning it into a hybrid ROV. While this feature is not needed in the final application 
+scenario it is a significant advantage during development.
 
 \paragraph{\textbf{System Management}} All electrical components are connected to the 
 power supply via electronic fuses, which are controlled by the system management board. 
@@ -713,21 +706,19 @@ components in the system. It is the first component which powers up after a syst
 and the last component which switches off. The system management is directly connected 
 to the XBee communication, acts as proxy for the underwater communication and controls 
 the access to the propulsion system. The system management board itself is equipped with 
-a watch dog and a brown out circuit. Via the system management the AUV can activate, 
-de-activate or reboot every component of the FlatFish. The only exception being the battery 
-powered com-tower. 
+a watchdog and a brown-out circuit. Via the system management the AUV can activate, 
+de-activate or reboot every component of FlatFish. The only exception being the battery-powered comms tower. 
 
-This setup is the basis for a robust and fault tolerant system, which is a necessity for 
-long-term deployment. Every component of the AUV can be switched of in the case of a 
-major fault or rebooted for fault recovery. Since the system management regulates the 
-access to the thrusters and can be contacted via every communication channel the AUV 
-can be forced to surface even when the main control software is broken or directly 
-controlled on the surface via WiFi or XBee.
+This setup is the basis for a robust and fault-tolerant system, which is a necessity for 
+long-term deployment. Every component of the AUV can be switched off in case of a 
+major fault or be rebooted for fault recovery. Since the system management regulates 
+access to the thrusters and can be contacted via every communication channel, the AUV 
+can be forced to surface even when the main control software is malfunctioning. Also, FlatFish can be directly controlled at the surface via WiFi or XBee.
 
-\paragraph{\textbf{Computer System}} FlatFish is equipped with two computer systems. 
-One is the dedicated control PC, which runs the low-level control, the navigation system 
-and the mission management. The second PC is the payload system, end therefore is the 
-host of the inspection software. The PC are connected via Gigabit Ethernet, which acts also 
+\paragraph{\textbf{Computer System}} FlatFish is equipped with two computers. 
+One is the dedicated control PC which runs the low-level control, the navigation system 
+and the mission management. The second PC is the payload system, and therefore is the 
+host of the inspection software. The PCs are connected via Gigabit Ethernet which also acts 
 as the main communication backbone.
 
 Figure~\ref{fig:flatfish1} shows the fully integrated system at the DFKI facilities in Bremen.
